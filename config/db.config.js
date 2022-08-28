@@ -13,7 +13,6 @@ mongoose
   })
   .catch((err) => {
     console.error(`Error connecting to ${MONGODB_URI}`, err);
-
     process.exit(0);
   });
 
