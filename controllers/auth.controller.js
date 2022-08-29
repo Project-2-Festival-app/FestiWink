@@ -18,7 +18,7 @@ module.exports.doRegister = (req, res, next) => {
       if (userFound) {
         renderWithErrors("Email already exist");
       } else {
-        return User.create(user).then((userCreated) => {
+        return User.create(user).then((user) => {
           req.session.currentUser = user;
           res.redirect("/profile");
         });
