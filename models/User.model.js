@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const rollUser =["admin","user","creator"]
 
+const ROLLUSER =["Admin","User","Creator"]
 const EMAIL_PATTERN = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 const PASSWORD_PATTERN = /^.{8,}$/i
 const SALT_ROUNDS = 10
@@ -33,21 +33,9 @@ const userSchema = new mongoose.Schema({
     },
     roll: {
         type: String,
-        default: "user"
+        required: true,
+        enum: ROLLUSER
     },
-    active: {
-      type: Boolean,
-      default: false
-    },
-    activationToken: {
-        type: String,
-        default: () => {
-            return Math.random().toString(36).substring(7) +
-            Math.random().toString(36).substring(7) +
-            Math.random().toString(36).substring(7) +
-            Math.random().toString(36).substring(7)
-          }
-    }
 })
 
 // VIRTUALS LIKE, COMMENT AND IMAGEN
@@ -73,5 +61,4 @@ userSchema.methods.checkPassword = function(password) {
 };
 
 const User = mongoose.model('User', userSchema);
-
 module.exports = User;

@@ -12,8 +12,8 @@ require('./config/passport.config');
 const app = express();
 
 //Middlewares
-app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname + '../public')));
+app.use(express.urlencoded({ extended: false }));
 app.use(logger("dev"));
 
 //Config Session
@@ -32,7 +32,7 @@ app.use(passport.session());
 
 //Routes config
 app.use((req, res, next) => {
-  res.locals.currentUser = req.user;
+  res.locals.currentUser = req.session.currentUser;
   next();
 });
 

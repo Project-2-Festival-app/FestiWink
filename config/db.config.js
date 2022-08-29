@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/FestiWink"; //como le llamamos a la colecion en la base de datos
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/FestiWink";
 
 mongoose
   .connect(MONGODB_URI, {
@@ -13,6 +13,7 @@ mongoose
   })
   .catch((err) => {
     console.error(`Error connecting to ${MONGODB_URI}`, err);
+
     process.exit(0);
   });
 
