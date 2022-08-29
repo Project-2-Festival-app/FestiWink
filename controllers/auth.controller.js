@@ -13,13 +13,18 @@ module.exports.doRegister = (req, res, next) => {
     res.render("auth/register", { errors, user });
   };
 
-  User.findOne({ email: user.email })
+  User.findOne({ $or:[{ email: user.email }, { Username: user.Username }] })
     .then((userFound) => {
+      console.log(userFound)
       if (userFound) {
+        console.log("encontre el usuario")
         renderWithErrors("Email already exist");
       } else {
         return User.create(user).then((user) => {
           req.session.currentUser = user;
+          console.log(
+            'entro'
+          )
           res.redirect("/profile");
         });
       }
@@ -28,6 +33,7 @@ module.exports.doRegister = (req, res, next) => {
       if (err instanceof mongoose.Error.ValidationError) {
         renderWithErrors(err.errors)
       } else {
+        console.log("err", err)
         next(err)
       }
     });
