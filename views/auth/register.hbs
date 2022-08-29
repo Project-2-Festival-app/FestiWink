@@ -8,13 +8,13 @@
       <div class="input-group mb-2">
         <input
           type="text"
-          name="Username"
-          class="custom-form-control form-control py-2 ps-4 {{#if errors.Username}}is-invalid{{/if}}"
-          placeholder="Username"
-          aria-label="User name"
-          value="{{ user.Username }}"
+          name="name"
+          class="custom-form-control form-control py-2 ps-4 {{#if errors.name}}is-invalid{{/if}}"
+          placeholder="name"
+          aria-label="name"
+          value="{{ user.name }}"
         >
-        {{#if errors.Username}}<div class="invalid-feedback">{{ errors.Username }}</div>{{/if}}
+        {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
       </div>
 
       <div class="input-group mb-2">

@@ -1,6 +1,8 @@
 const User = require("../models/User.model");
 const mongoose = require("mongoose");
 const passport = require('passport');
+const mailer = require("../config/mailer.config");
+
 
 module.exports.register = (req, res, next) => {
   res.render("auth/register");
@@ -13,19 +15,17 @@ module.exports.doRegister = (req, res, next) => {
     res.render("auth/register", { errors, user });
   };
 
-  User.findOne({ $or:[{ email: user.email }, { Username: user.Username }] })
+  User.findOne({ $or:[{ email: user.email }, { name: user.name }] })
     .then((userFound) => {
-      console.log(userFound)
       if (userFound) {
-        console.log("encontre el usuario")
         renderWithErrors("Email already exist");
       } else {
-        return User.create(user).then((user) => {
-          req.session.currentUser = user;
+        return User.create(user).then((userCreated) => {
           console.log(
-            'entro'
+            'entro en mailer con', userCreated
           )
-          res.redirect("/profile");
+          mailer.sendActivationMail(userCreated.email, userCreated.activationToken);
+          res.redirect("/login");
         });
       }
     })
@@ -37,7 +37,11 @@ module.exports.doRegister = (req, res, next) => {
         next(err)
       }
     });
-};
+  };
+  
+  module.exports.login = (req, res, next) => {
+    res.render("auth/login");
+  };
 
 const login = (req, res, next, provider) => {
   passport.authenticate(provider || 'local-auth', (err, user, validations) => {
@@ -47,6 +51,7 @@ const login = (req, res, next, provider) => {
       res.status(404).render('auth/login', { errors: validations.error })
     } else {
       req.login(user, (loginError) => {
+        console.log("user en login", user)
         if (loginError) {
           next(loginError)
         } else {
@@ -57,9 +62,6 @@ const login = (req, res, next, provider) => {
   })(req, res, next)
 }
 
-module.exports.login = (req, res, next) => {
-  res.render("auth/login");
-};
 
 module.exports.doLogin = (req, res, next) => {
   login(req, res, next);
@@ -74,3 +76,22 @@ module.exports.logout = (req, res, next) => {
 };
 
 
+module.exports.activateAccount = (req, res, next) => {
+  const token = req.params.token;
+
+  User.findOneAndUpdate(
+    { activationToken: token, active: false },
+    { active: true }
+  )
+    .then((user) => {
+      if (user) {
+        res.render("auth/login", {
+         user ,
+          message: "You have activated your account. Thanks for joining!"
+        })
+      } else {
+        res.redirect("/login")
+      }
+    })
+    .catch(next)
+}

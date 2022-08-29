@@ -7,7 +7,7 @@ const PASSWORD_PATTERN = /^.{8,}$/i
 const SALT_ROUNDS = 10
 
 const userSchema = new mongoose.Schema({
-    Username: {
+    name: {
         type: String,
         required: [true, 'Username is required.'],
         minLength: [3, 'Name must contain at least 3 characters.'],
@@ -36,6 +36,19 @@ const userSchema = new mongoose.Schema({
         required: true,
         enum: ROLLUSER
     },
+    active: {
+        type: Boolean,
+        default: false
+      },
+      activationToken: {
+        type: String,
+        default: () => {
+          return Math.random().toString(36).substring(7) +
+          Math.random().toString(36).substring(7) +
+          Math.random().toString(36).substring(7) +
+          Math.random().toString(36).substring(7)
+        }
+      },
 })
 
 // VIRTUALS LIKE, COMMENT AND IMAGEN

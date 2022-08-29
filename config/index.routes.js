@@ -4,6 +4,11 @@ const authController = require('../controllers/auth.controller')
 const miscController = require('../controllers/misc.controller')
 const usersController = require("../controllers/user.controller")
 
+const SCOPES = [
+    "profile",
+    "email"
+  ]
+
 //MISC
 router.get("/", miscController.home)
 
@@ -15,6 +20,9 @@ router.get("/login", authController.login);
 router.post("/login", authController.doLogin);
 router.get("/logout", authController.logout);
 
+router.get('/login/google', passport.authenticate('google-auth', { scope: SCOPES  }))
+router.get('/auth/google/callback', authController.doLoginGoogle)
+router.get('/activate/:token', authController.activateAccount)
 // USERS
 router.get("/profile", usersController.profile);
 
