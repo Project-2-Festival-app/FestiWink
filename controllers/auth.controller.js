@@ -11,6 +11,10 @@ module.exports.register = (req, res, next) => {
 module.exports.doRegister = (req, res, next) => {
   const user = req.body;
 
+  if(req.file) {
+    user.image = req.file.path
+  }
+
   const renderWithErrors = (errors) => {
     res.render("auth/register", { errors, user });
   };

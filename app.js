@@ -32,7 +32,7 @@ app.use(passport.session());
 
 //Routes config
 app.use((req, res, next) => {
-  res.locals.currentUser =  req.session.currentUser;
+  res.locals.currentUser =  req.user;
   next();
 });
 

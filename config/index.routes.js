@@ -3,6 +3,7 @@ const passport = require('passport');
 const authController = require('../controllers/auth.controller')
 const miscController = require('../controllers/misc.controller')
 const usersController = require("../controllers/user.controller")
+const fileUploader = require('./cloudinary.config')
 
 const SCOPES = [
     "profile",
@@ -14,7 +15,7 @@ router.get("/", miscController.home)
 
 // AUTH
 router.get("/register", authController.register);
-router.post("/register", authController.doRegister);
+router.post("/register",fileUploader.single('image'), authController.doRegister);
 
 router.get("/login", authController.login);
 router.post("/login", authController.doLogin);
