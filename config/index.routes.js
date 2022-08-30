@@ -38,7 +38,7 @@ router.get("/profile", usersController.profile);
 // FESTIVALS
 
 router.get("/festivals", festController.list)
-//router.get("/festivals/:id", festController.detail)
+router.get("/festivals/:id", festController.detail)
 
 /*router.get("/festivals/create", festController.createFestival);
 router.post("/festivals/create", festController.doCreate);
