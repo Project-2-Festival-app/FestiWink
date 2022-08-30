@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const CATEGORY =['Rock','Pop','Reggeton','Indie','Techno']
+const CATEGORY =['Rock','Pop','Reggaeton','Indie','Techno','Electrohouse','Deep House']
 
 
 const festivalSchema = new mongoose.Schema({
@@ -26,7 +26,7 @@ const festivalSchema = new mongoose.Schema({
         minLength: [3, 'Festival description must contain at least 3 characters.'],
     },
     price:{
-        type:Number,
+        type:String,
     },
     date:{
         type: Date,
