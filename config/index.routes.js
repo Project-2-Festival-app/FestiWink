@@ -37,12 +37,14 @@ router.get("/profile", usersController.profile);
 
 // FESTIVALS
 
+router.get("/festivals/create",authMiddlewares.isAuthenticated, festController.createFestival);
+router.post("/festivals/create",authMiddlewares.isAuthenticated, festController.doCreate);
+
 router.get("/festivals", festController.list)
 router.get("/festivals/:id", festController.detail)
 
-/*router.get("/festivals/create", festController.createFestival);
-router.post("/festivals/create", festController.doCreate);
 
+/*
 router.get("/festivals/:id/edit", festController.editFestival);
 router.post("/festivals/:id/edit", festController.doEdit);
 */

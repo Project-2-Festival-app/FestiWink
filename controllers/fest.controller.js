@@ -10,13 +10,28 @@ module.exports.list = (req, res, next) => {
 };
 
 module.exports.detail = (req, res, next) => {
+
   const { id } = req.params;
   Festival.findById( id )
     .then((festival) => {
       res.render("festival/detail", { festival });
     })
     .catch((err) => {
-        console.error(err);
-        next(createError(404, "Festival not found"));
+
+        next(err);
       });
+};
+
+module.exports.createFestival = (req, res, next) => {
+    console.log("createFestival entro");
+res.render("festival/form")
+};
+
+module.exports.doCreate = (req, res, next) => {
+    console.log("doCreate entro festivals");
+  Festival.create(req.body)
+    .then((createdFestival) => {
+        res.redirect("/festivals/${createdFestival._id}")
+    })
+    .catch(next);
 };

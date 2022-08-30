@@ -1,184 +1,183 @@
 [
-    {
-      "name": "Ultra Music Festival",
+  {
+    "name": "Ultra Music Festival",
+    "category": "Techno",
+    "location": "Parque Enrique Tierno Galván, C. Meneses, 4, 28045 Madrid",
+    "description": " Is an annual outdoor electronic music festival that takes place during March in Madrid and other locations.",
+    "price": "$299.95",
+    "date": "09/09/2022",
+    "image": "https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+  },
+  {
+      "name": "We Color Festival",
       "category": "Techno",
-      "location": "Parque Enrique Tierno Galván, C. Meneses, 4, 28045 Madrid",
-      "description": " Is an annual outdoor electronic music festival that takes place during March in Madrid and other locations.",
-      "price": "$299.95",
-      "date": "09/09/2022",
-      "image": "https://unsplash.com/es/fotos/aWXVxy8BSzc"
+      "location": "Centro Cultural Viñagrande. Calle Parque Ordesa, 5, Alcorcón, España.",
+      "description": "It is a festival where music and colors come together to live a unique experience that is growing more and more in its various editions around the world.",
+      "price": "$40",
+      "date": "09/10/2022",
+      "image": "https://images.unsplash.com/photo-1603228254119-e6a4d095dc59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
     },
     {
-        "name": "We Color Festival",
-        "category": "Techno",
-        "location": "Centro Cultural Viñagrande. Calle Parque Ordesa, 5, Alcorcón, España.",
-        "description": "It is a festival where music and colors come together to live a unique experience that is growing more and more in its various editions around the world.",
-        "price": "$40",
-        "date": "09/10/2022",
-        "image": "https://unsplash.com/es/fotos/LtE6W_JVTGc"
-      },
-      {
-        "name": "I Love Reggaeton",
-        "category": "Reggaeton",
-        "location": "IFEMA MADRID. Av. del Partenón, 5, Madrid",
-        "description": "Concert that pays tribute to the history of reggaeton with a twelve-hour party of music by its founders and greatest exponents.",
-        "price": "$30",
-        "date": "09/11/2022",
-        "image": "https://unsplash.com/es/fotos/bn-D2bCvpik"
-      },
-      {
-        "name": "Tomorrowland ",
-        "category": "Techno",
-        "location": "Schommelei 1, 2850 Boom, Bélgica",
-        "description": "Tomorrowland is much more than an electronic party. The festival itself offers a variety of subgenres within electronic music. It is a kind of theme park for adults inspired by the circus world with more than 15 different scenarios.",
-        "price": "$300",
-        "date": "09/16/2022",
-        "image": "https://unsplash.com/es/fotos/5Rt5KhbUp5g"
-      },
-      {
-        "name": "Ballon Festival",
-        "category": "Indie",
-        "location": "Ashton Court Estate, Long Ashton, Avon, Bristol BS41 9JN, Reino Unido",
-        "description": "Teams from the UK and around the world bring their hot air balloons to the site and take part in massive ascents where up to 100 balloons can be launched at once.",
-        "price": "$150",
-        "date": "09/17/2022",
-        "image": "https://unsplash.com/es/fotos/DuBNA1QMpPA"
-      },
-      {
-        "name": "Lollapalooza",
-        "category": "Rock",
-        "location": "Hipódromo de San Isidro, Av. Bernabé Márquez 700, B1642 San Isidro, Provincia de Buenos Aires, Argentina",
-        "description": "Lollapalooza Argentina is one of the three South American editions of this mythical series of festivals. The festival has already made a name for itself by combining world-class music with visual arts, fashion and food and drink in a huge open-air venue.",
-        "price": "$20",
-        "date": "09/23/2022",
-        "image": "https://unsplash.com/es/fotos/h-4IQyai5ws"
-      },
-      {
-        "name": "Moon Festival",
-        "category": "Techno",
-        "location": "WiZink Center, Av. Felipe II, s/n, 28009 Madrid",
-        "description": "is an electronic music festival that pays homage to all facets of the moon.",
-        "price": "$45",
-        "date": "09/24/2022",
-        "image": "https://unsplash.com/es/fotos/siiXoX1uKzY"
-      },
-      {
-        "name": "Splash Fest",
-        "category": "Pop",
-        "location": "Palacio Vistalegre Arena. C. de Matilde Hernández, s/n, Madrid",
-        "description": "Festival and open-air music cycles for all tastes that feature the best national and international pop music artists.",
-        "price": "$50",
-        "date": "09/30/2022",
-        "image": "https://unsplash.com/es/fotos/WetGvQxnbYY"
-      },
-      {
-        "name": "Mad Cool Sunset",
-        "category": "Techno",
-        "location": "IFEMA MADRID. Av. del Partenón, 5, Madrid",
-        "description": "It will be a one-day musical event to close the summer with a line-up that will include great groups like Rage Against The Machine, Biffy Clyro, Glass Animals, Run the Jewels or Sports Team.",
-        "price": "$70",
-        "date": "10/01/2022",
-        "image": "https://unsplash.com/es/fotos/nu7AOx73UOM"
-      },
-      {
-        "name": "Mashmellow Fest",
-        "category": "Electrohouse",
-        "location": "WiZink Center, Av. Felipe II, s/n, 28009 Madrid",
-        "description": "He performs together with Jack Ü and Zedd, in a festival that will have future bass, techno and electrohouse.",
-        "price": "$80",
-        "date": "10/07/2022",
-        "image": "https://unsplash.com/es/fotos/9tZhyQskezA"
-      },
-      {
-        "name": "Purple Sunset",
-        "category": "Deep House",
-        "location": "Ctra. de la Azucarera Intelhorce, 10, Málaga",
-        "description": "its out-of-this-world extravaganzas featuring some of the trendiest deep house music originals, artists and DJs.",
-        "price": "$80",
-        "date": "10/08/2022",
-        "image": "https://unsplash.com/es/fotos/8XLapfNMW04"
-      },
-      {
-        "name": "Flower Rainbow",
-        "category": "Indie",
-        "location": "Complejo Deportivo Cantarranas. Av. Puerta de Hierro, 6, Madrid",
-        "description": "A never before seen extravagant and exotic indie festival, which will have many unique artists coming from all over the world to give you an out of this world concert.",
-        "price": "$65",
-        "date": "10/14/2022",
-        "image": "https://unsplash.com/es/fotos/TE50158gdvs"
-      },
-      {
-        "name": "Festival Blam",
-        "category": "Reggaeton",
-        "location": "Valdebebas. Av. de las Fuerzas Armadas, 322, Madrid",
-        "description": "This is the Madrid Reggaeton Festival, an event that will bring together the most established stars in the world of Reggaeton at a national and international level.",
-        "price": "$25",
-        "date": "10/15/2022",
-        "image": "https://unsplash.com/es/fotos/NYrVisodQ2M"
-      },
-      {
-        "name": "PM Open Air",
-        "category": "Deep House",
-        "location": "Acceso Punta Carrasco, Buenos Aires, Argentina",
-        "description": "PM is the first Open Air in Buenos Aires. Evenings of music in the sun in the city. Punta Carrasco, Buenos Aires, Autonomous City of Buenos Aires, Argentina.",
-        "price": "$20",
-        "date": "10/21/2022",
-        "image": "https://unsplash.com/es/fotos/APJ6MvCZefM"
-      },
-      {
-        "name": "Electric Daisy Carnival",
-        "category": "Techno",
-        "location": "Las Vegas Festival Grounds, 2594 S Las Vegas Blvd, Las Vegas, Nevada, 89109, Estados Unidos",
-        "description": "EDC is a unique multi-day festival pushing the boundaries of imagination and setting standards in the live entertainment industry. It is more than an electronic music festival with an unparalleled experience unlike any other. ",
-        "price": "$180",
-        "date": "10/22/2022",
-        "image": "https://unsplash.com/es/fotos/Yb-n0JHlsWY"
-      },
-      {
-        "name": "Sunset Fest",
-        "category": "Deep House",
-        "location": "Ushuaia Ibiza Beach Hotel. Ctra. de Platja d'en Bossa, 10, Sant Jordi de ses Salines",
-        "description": "It is a festival where you can enjoy various artists while you are in the pool or on the beach watching the sunset.",
-        "price": "$100",
-        "date": "10/28/2022",
-        "image": "https://unsplash.com/es/fotos/6wCWCPwmRJY"
-      },
-      {
-        "name": "Just Now",
-        "category": "Indie",
-        "location": "St Kilda, Melbourne, Australia",
-        "description": "It is an indie festival that is from all day to night where there are several stages to enjoy different artists at the same time.",
-        "price": "$45",
-        "date": "10/29/2022",
-        "image": "https://unsplash.com/es/fotos/pBV7ryYPDJ0"
-      },
-      {
-        "name": "Time Warp",
-        "category": "Techno",
-        "location": "Maimarktgelände Parkplatz. 68163 Mannheim, Mannheim, Germany",
-        "description": "The Time Warp Festival is an international electronic music festival whose first edition was on November 26, 1994 in the city of Ludwigshafen am Rhein, Germany. Since then it has been held between one and three times a year in different cities of Germany.",
-        "price": "$120",
-        "date": "11/02/2022",
-        "image": "https://unsplash.com/es/fotos/GjIOvAAdqew"
-      },
-      {
-        "name": "Coachella ",
-        "category": "Techno",
-        "location": "coachella valley music and arts festival, indio, united states",
-        "description": "The Coachella Valley Music and Arts Festival is a huge music festival that takes place in the Colorado desert.",
-        "price": "$70",
-        "date": "11/03/2022",
-        "image": "https://unsplash.com/es/fotos/ab5jn3Ikj8M"
-      },
-      {
-        "name": "Conection Valladolid Festival",
-        "category": "Techno",
-        "location": "CL-610, 230, 47008 Valladolid , España",
-        "description": "Electronic music festival to which several artists from different parts of the world will come. It is a festival that starts at noon and lasts all night.",
-        "price": "$137",
-        "date": "11/09/2022",
-        "image": "https://unsplash.com/es/fotos/eXVd7gDPO9A"
-      }
-  
-  ]
+      "name": "I Love Reggaeton",
+      "category": "Reggaeton",
+      "location": "IFEMA MADRID. Av. del Partenón, 5, Madrid",
+      "description": "Concert that pays tribute to the history of reggaeton with a twelve-hour party of music by its founders and greatest exponents.",
+      "price": "$30",
+      "date": "09/11/2022",
+      "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+      "name": "Tomorrowland ",
+      "category": "Techno",
+      "location": "Schommelei 1, 2850 Boom, Bélgica",
+      "description": "Tomorrowland is much more than an electronic party. The festival itself offers a variety of subgenres within electronic music. It is a kind of theme park for adults inspired by the circus world with more than 15 different scenarios.",
+      "price": "$300",
+      "date": "09/16/2022",
+      "image": "https://images.unsplash.com/photo-1505842465776-3b4953ca4f44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+      "name": "Ballon Festival",
+      "category": "Indie",
+      "location": "Ashton Court Estate, Long Ashton, Avon, Bristol BS41 9JN, Reino Unido",
+      "description": "Teams from the UK and around the world bring their hot air balloons to the site and take part in massive ascents where up to 100 balloons can be launched at once.",
+      "price": "$150",
+      "date": "09/17/2022",
+      "image": "https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+      "name": "Lollapalooza",
+      "category": "Rock",
+      "location": "Hipódromo de San Isidro, Av. Bernabé Márquez 700, B1642 San Isidro, Provincia de Buenos Aires, Argentina",
+      "description": "Lollapalooza Argentina is one of the three South American editions of this mythical series of festivals. The festival has already made a name for itself by combining world-class music with visual arts, fashion and food and drink in a huge open-air venue.",
+      "price": "$20",
+      "date": "09/23/2022",
+      "image": "https://images.unsplash.com/photo-1497911132754-7abd9bf09f76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+      "name": "Moon Festival",
+      "category": "Techno",
+      "location": "WiZink Center, Av. Felipe II, s/n, 28009 Madrid",
+      "description": "is an electronic music festival that pays homage to all facets of the moon.",
+      "price": "$45",
+      "date": "09/24/2022",
+      "image": "https://images.unsplash.com/photo-1616855752765-2d867caa9aa7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80"
+    },
+    {
+      "name": "Splash Fest",
+      "category": "Pop",
+      "location": "Palacio Vistalegre Arena. C. de Matilde Hernández, s/n, Madrid",
+      "description": "Festival and open-air music cycles for all tastes that feature the best national and international pop music artists.",
+      "price": "$50",
+      "date": "09/30/2022",
+      "image": "https://images.unsplash.com/photo-1520600661691-801f48869ee4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+      "name": "Mad Cool Sunset",
+      "category": "Techno",
+      "location": "IFEMA MADRID. Av. del Partenón, 5, Madrid",
+      "description": "It will be a one-day musical event to close the summer with a line-up that will include great groups like Rage Against The Machine, Biffy Clyro, Glass Animals, Run the Jewels or Sports Team.",
+      "price": "$70",
+      "date": "10/01/2022",
+      "image": "https://images.unsplash.com/photo-1612443016610-00c5fa0ec439?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+      "name": "Mashmellow Fest",
+      "category": "Electrohouse",
+      "location": "WiZink Center, Av. Felipe II, s/n, 28009 Madrid",
+      "description": "He performs together with Jack Ü and Zedd, in a festival that will have future bass, techno and electrohouse.",
+      "price": "$80",
+      "date": "10/07/2022",
+      "image": "https://images.unsplash.com/photo-1514533212735-5df27d970db0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=812&q=80"
+    },
+    {
+      "name": "Purple Sunset",
+      "category": "Deep House",
+      "location": "Ctra. de la Azucarera Intelhorce, 10, Málaga",
+      "description": "its out-of-this-world extravaganzas featuring some of the trendiest deep house music originals, artists and DJs.",
+      "price": "$80",
+      "date": "10/08/2022",
+      "image": "https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+      "name": "Flower Rainbow",
+      "category": "Indie",
+      "location": "Complejo Deportivo Cantarranas. Av. Puerta de Hierro, 6, Madrid",
+      "description": "A never before seen extravagant and exotic indie festival, which will have many unique artists coming from all over the world to give you an out of this world concert.",
+      "price": "$65",
+      "date": "10/14/2022",
+      "image": "https://images.unsplash.com/photo-1514533450685-4493e01d1fdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+    },
+    {
+      "name": "Festival Blam",
+      "category": "Reggaeton",
+      "location": "Valdebebas. Av. de las Fuerzas Armadas, 322, Madrid",
+      "description": "This is the Madrid Reggaeton Festival, an event that will bring together the most established stars in the world of Reggaeton at a national and international level.",
+      "price": "$25",
+      "date": "10/15/2022",
+      "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+      "name": "PM Open Air",
+      "category": "Deep House",
+      "location": "Acceso Punta Carrasco, Buenos Aires, Argentina",
+      "description": "PM is the first Open Air in Buenos Aires. Evenings of music in the sun in the city. Punta Carrasco, Buenos Aires, Autonomous City of Buenos Aires, Argentina.",
+      "price": "$20",
+      "date": "10/21/2022",
+      "image": "https://images.unsplash.com/photo-1632679740710-45d1ffc117f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=977&q=80"
+    },
+    {
+      "name": "Electric Daisy Carnival",
+      "category": "Techno",
+      "location": "Las Vegas Festival Grounds, 2594 S Las Vegas Blvd, Las Vegas, Nevada, 89109, Estados Unidos",
+      "description": "EDC is a unique multi-day festival pushing the boundaries of imagination and setting standards in the live entertainment industry. It is more than an electronic music festival with an unparalleled experience unlike any other. ",
+      "price": "$180",
+      "date": "10/22/2022",
+      "image": "https://images.unsplash.com/photo-1497911174120-042e550e7e0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=856&q=80"
+    },
+    {
+      "name": "Sunset Fest",
+      "category": "Deep House",
+      "location": "Ushuaia Ibiza Beach Hotel. Ctra. de Platja d'en Bossa, 10, Sant Jordi de ses Salines",
+      "description": "It is a festival where you can enjoy various artists while you are in the pool or on the beach watching the sunset.",
+      "price": "$100",
+      "date": "10/28/2022",
+      "image": "https://images.unsplash.com/photo-1546484458-6904289cd4f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
+    },
+    {
+      "name": "Just Now",
+      "category": "Indie",
+      "location": "St Kilda, Melbourne, Australia",
+      "description": "It is an indie festival that is from all day to night where there are several stages to enjoy different artists at the same time.",
+      "price": "$45",
+      "date": "10/29/2022",
+      "image": "https://images.unsplash.com/photo-1560393834-77b6c2cf8066?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    },
+    {
+      "name": "Time Warp",
+      "category": "Techno",
+      "location": "Maimarktgelände Parkplatz. 68163 Mannheim, Mannheim, Germany",
+      "description": "The Time Warp Festival is an international electronic music festival whose first edition was on November 26, 1994 in the city of Ludwigshafen am Rhein, Germany. Since then it has been held between one and three times a year in different cities of Germany.",
+      "price": "$120",
+      "date": "11/02/2022",
+      "image": "https://images.unsplash.com/photo-1632008649281-0846891f76bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80"
+    },
+    {
+      "name": "Coachella ",
+      "category": "Techno",
+      "location": "coachella valley music and arts festival, indio, united states",
+      "description": "The Coachella Valley Music and Arts Festival is a huge music festival that takes place in the Colorado desert.",
+      "price": "$70",
+      "date": "11/03/2022",
+      "image": "https://images.unsplash.com/photo-1505224628533-c4fc42c389e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1034&q=80"
+    },
+    {
+      "name": "Conection Valladolid Festival",
+      "category": "Techno",
+      "location": "CL-610, 230, 47008 Valladolid , España",
+      "description": "Electronic music festival to which several artists from different parts of the world will come. It is a festival that starts at noon and lasts all night.",
+      "price": "$137",
+      "date": "11/09/2022",
+      "image": "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+    }
 
+]
