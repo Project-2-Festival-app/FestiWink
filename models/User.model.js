@@ -33,7 +33,6 @@ const userSchema = new mongoose.Schema({
     },
     roll: {
         type: String,
-        required: true,
         enum: ROLLUSER
     },
     active: {
@@ -49,9 +48,19 @@ const userSchema = new mongoose.Schema({
           Math.random().toString(36).substring(7)
         }
       },
-})
+    },
+    {
+        toObject: { virtuals: true },
+      }
+    )
 
-// VIRTUALS LIKE, COMMENT AND IMAGEN
+//    commentSchema.virtual("comments", {
+//         ref: "Comment",
+//         localField: "_id",
+//         foreignField: "user",
+//         justOne: false,
+//       });
+
 
 userSchema.pre('save', function(next) {
     const user = this;

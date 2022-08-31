@@ -5,7 +5,6 @@ const authController = require('../controllers/auth.controller')
 const miscController = require('../controllers/misc.controller')
 const usersController = require("../controllers/user.controller")
 const festController = require("../controllers/fest.controller")
-
 const fileUploader = require('./cloudinary.config')
 const authMiddlewares = require("../middlewares/authMiddleware");
 
@@ -34,6 +33,7 @@ router.get('/activate/:token', authController.activateAccount)
 
 // USERS
 router.get("/profile", usersController.profile);
+router.post("/like/:id",authMiddlewares.isAuthenticated, miscController.like )
 
 // FESTIVALS
 

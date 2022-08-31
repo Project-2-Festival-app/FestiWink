@@ -14,4 +14,27 @@
   <p><b>Price :</b> {{festival.price}}</p>
   <a href="/festivals/" class="btn btn-dark mt-2">Go Back</a>
   <a href="" class="btn btn-dark mt-2">Buy Ticket</a>
+  <button class="like-btn" data-id="{{festival._id}}"> 
+    <i class="bi bi-heart" >DISLIKE</i>
+  </button>
 </div>
+
+<script>
+ const changeNodes = document.querySelectorAll('.like-btn');
+ console.log(changeNodes)
+  for(let node of changeNodes) {
+    node.addEventListener('click', () => {
+      const nodeId = node.dataset.id;
+      axios.post(`/like/${nodeId}`)
+        .then(responseFromApi => {
+          console.log('Success!', responseFromApi);
+          if(responseFromApi.status == 204) {
+            node.className("bi-heart")? node.classList.remove("bi-heart"): node.classList.remove("bi-heart-fill")
+             node.className("bi-heart")? node.classList.add("bi-heart-fill"): node.classList.add("bi-heart")
+          
+          }
+        })
+        .catch(error => console.log('Error!', error))
+    })
+  }
+</script>

@@ -70,7 +70,8 @@ passport.use(
 			const email = profile.emails[0] ? profile.emails[0].value : undefined;
 			const name = profile.displayName;
 			const image = profile.photos[0].value;
-
+			
+			console.log("entro", googleID, email, name, image)
 			if (googleID && email) {
 				User.findOne({
 					$or: [
@@ -95,10 +96,14 @@ passport.use(
 							image,
 							status: true,
 						}).then((createdUser) => {
+							
 							next(null, createdUser);
 						});
 					})
-					.catch((err) => next(err));
+					.catch((err) => {
+						console.error(err)
+						next(err)
+					});
 			} else {
 				next(null, false, {
 					error: "Error connecting to Google.",
