@@ -1,4 +1,4 @@
-<div class="form">
+<div class="form container">
 <form action="/festivals/create" method="POST" enctype='multipart/form-data'>
 
        <div class="input-group mb-2">
@@ -31,7 +31,7 @@
         </select>
         {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
       </div>
-             <div class="input-group mb-2">
+        <div class="input-group mb-2">
         <input
           type="text"
           name="location"
@@ -86,7 +86,7 @@
           class="custom-form-control form-control py-2 ps-4 {{#if errors.image}}is-invalid{{/if}}"
           placeholder="Upload Image"
           aria-label="User name"
-          value="{{ user.image }}"
+          value="{{ festival.image }}"
         >
         {{#if errors.image}}<div class="invalid-feedback">{{ errors.image }}</div>{{/if}}
       </div>

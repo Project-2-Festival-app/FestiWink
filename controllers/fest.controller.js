@@ -28,10 +28,14 @@ res.render("festival/form")
 };
 
 module.exports.doCreate = (req, res, next) => {
+    const festival = req.body;
+    if(req.file) {
+        festival.image = req.file.path;
+      }
     console.log("doCreate entro festivals");
-  Festival.create(req.body)
+  Festival.create(festival)
     .then((createdFestival) => {
-        res.redirect("/festivals/${createdFestival._id}")
+        res.redirect(`/festivals/${createdFestival._id}`)
     })
     .catch(next);
 };
