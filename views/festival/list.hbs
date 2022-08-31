@@ -20,11 +20,16 @@
     {{/if}}
   </div>
   <hr class="my-4">
-  <div class="row">
+  {{!-- {{#if currentUser.name === Creator }} --}}
+  {{!-- {{#if (Cond currentUser.roll) }} --}}
+  {{!-- {{#ifequal currentUser.roll "Creator"}}   --}}
+    <div class="row">
     <div class="col col-sm-8 col-md-6 col-lg-4 mx-auto d-flex justify-content-center">
       <a href="/festivals/create" class="btn btn-dark">Create Festival</a>
     </div>
   </div>
+  {{!-- {{/ifequal}} --}}
+{{!-- {{/if}} --}}
 </div>
 <script>
   const removeNodes = document.querySelectorAll('.remove');
@@ -41,4 +46,10 @@
         .catch(error => console.log('Error!', error))
     })
   }
+</script>
+<script>
+  Ember.Handlebars.registerHelper('ifeq', function(val1, val2, options) {
+   return (this.get(val1) == val2) ? options.fn(this) : '';
+});
+
 </script>

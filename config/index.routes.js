@@ -38,7 +38,7 @@ router.get("/profile", usersController.profile);
 // FESTIVALS
 
 router.get("/festivals/create",authMiddlewares.isAuthenticated, festController.createFestival);
-router.post("/festivals/create",authMiddlewares.isAuthenticated, festController.doCreate);
+router.post("/festivals/create",authMiddlewares.isAuthenticated,fileUploader.single('image'), festController.doCreate);
 
 router.get("/festivals", festController.list)
 router.get("/festivals/:id", festController.detail)
