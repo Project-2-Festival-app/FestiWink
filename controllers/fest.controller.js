@@ -23,8 +23,7 @@ module.exports.detail = (req, res, next) => {
 };
 
 module.exports.createFestival = (req, res, next) => {
-    console.log("createFestival entro");
-res.render("festival/form")
+  res.render("festival/form")
 };
 
 module.exports.doCreate = (req, res, next) => {
@@ -32,7 +31,6 @@ module.exports.doCreate = (req, res, next) => {
     if(req.file) {
         festival.image = req.file.path;
       }
-    console.log("doCreate entro festivals");
   Festival.create(festival)
     .then((createdFestival) => {
         res.redirect(`/festivals/${createdFestival._id}`)
