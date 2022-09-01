@@ -6,5 +6,13 @@
       <h3>Roll: {{currentUser.roll}}</h3>
       <hr class="my-4">
     </div>
+    {{#each likes as |like| }}
+    <div class="col text-center mt-4">
+      <img src="{{like.festival.image}}" class="rounded-circle border border-3 m-4" width="200" alt={{like.festival.name}} referrerpolicy="no-referrer"/>
+      <h2>Hi {{flike.estival.name}}!</h2>
+      <h3>Price: {{like.festival.price}}</h3>
+      <hr class="my-4">
+    </div>
+    {{/each}}
   </div>
 </div>

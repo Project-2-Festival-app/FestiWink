@@ -10,7 +10,6 @@ module.exports.like = (req, res, next) => {
 	const userId = req.user._id.valueOf();
 	const festivalId = req.params.id;
 
-	
 	Like.findOneAndDelete({ user: userId, festival: festivalId })
 	.then((like) => {
 		if (like) {
