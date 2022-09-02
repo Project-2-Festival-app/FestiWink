@@ -7,6 +7,10 @@ const commentSchema = new Schema({
         ref: 'User',
         required: true
     },
+    author: {
+        type: String,
+        required: true
+    },
     festival: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Festival',
@@ -16,9 +20,9 @@ const commentSchema = new Schema({
         type: String,
         required: true,
     }
-}, { timestamps: true });
-
+}, 
+{ timestamps: true }
+);
 
 const Comment = mongoose.model('Comment', commentSchema);
-
 module.exports = Comment;

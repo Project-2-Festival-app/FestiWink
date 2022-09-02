@@ -19,6 +19,30 @@
   </button>
 </div>
 
+<h3 class="m-3">--Comments--</h3>
+{{#each festival.comments as | comment |}}
+<hr>
+<div class="m-4 container">
+  <p><b>Author :</b> {{comment.author}}</p>
+  <p><b>Comment :</b> {{comment.content}}</p>
+</div>
+{{/each}}
+
+<hr>
+ 
+<div class = "container">
+<h3>Add comment</h3>
+ 
+<form action="/festivals/{{festival._id}}/comment" method="POST">
+  <label for="comment-author-username">Your name:</label>
+  <input type="text" name="author" id="comment-author-username" />
+  <input type="text" name="commentAuthor" id="comment-author" value="{{author.username}}" hidden />
+  <textarea name="content" id="comment-content-input" cols="40" rows="3"></textarea>
+  <button type="submit">Comment</button>
+</form>
+</div>
+
+
 <script>
  const likeNode = document.querySelectorAll('.like-btn-dislike');
 
