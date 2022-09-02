@@ -59,11 +59,11 @@ Colores gradientes  linear-gradient(-45deg, rgb(108, 14, 224) -5%, rgb(240, 55, 
 }
 
 .img-loggin img {
-    width: 620px;
+    width: 650px;
     height: 700px;
 }
 
-.form {
+.forms {
    margin-top: -100px;
    position: relative;
    left: 25%;
@@ -88,3 +88,5 @@ body::-webkit-scrollbar {
     display: none;
     /* no scrolling bar */
 }
+
+
