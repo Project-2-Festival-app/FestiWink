@@ -1,40 +1,44 @@
-<div class="card mb-3">
-	<img src={{festival.image}} class="m-4 rounded" width="310"alt={{festival.name}}/>
-	<div class="card-body">
-		<h5 class="card-title text-uppercase">{{festival.name}}</h5>
+<div class="card mb-3 detail">
+	<img
+		src={{festival.image}}
+		class="m-4 rounded party"
+		width="370"
+		height="280"
+		alt={{festival.name}}
+	/>
+	<div class="card-body detail-card">
+		<h1 class="card-title text-uppercase">{{festival.name}}</h1>
 		<p class="card-text"><small class="text-muted">{{festival.date}}</small></p>
-    <i>{{festival.description}}</i>
 	</div>
 </div>
 
-<h3 class="m-3">Information</h3>
-<div class="m-4">
-  <p><b>Place :</b> {{festival.location}}</p>
-  <p><b>Date :</b> {{festival.date}}</p>
-  <p><b>Price :</b> {{festival.price}}</p>
-  <a href="/festivals/" class="btn btn-dark mt-2">Go Back</a>
-  <a href="" class="btn btn-dark mt-2">Buy Ticket</a>
-  <button class="like-btn" data-id="{{festival._id}}"> 
-    <i class="bi bi-heart" >DISLIKE</i>
-  </button>
+<div class="detail-desc">
+	<i>{{festival.description}}</i>
+</div>
+<hr />
+
+<h3 class="info">Information</h3>
+<div class="info-more">
+	<p><b>Place :</b> {{festival.location}}</p>
+	<p><b>Date :</b> {{festival.date}}</p>
+	<p><b>Price :</b> {{festival.price}}</p>
+	<div class="buttons-detail">
+		<a href="/festivals/" class="btn btn-dark mt-2">Go Back</a>
+		<a href="" class="btn btn-dark mt-2">Buy Ticket</a>
+		<button class="like-btn" data-id="{{festival._id}}">
+			<i class="bi bi-heart">DISLIKE</i>
+		</button>
+	</div>
 </div>
 
 <script>
- const changeNodes = document.querySelectorAll('.like-btn');
- console.log(changeNodes)
-  for(let node of changeNodes) {
-    node.addEventListener('click', () => {
-      const nodeId = node.dataset.id;
-      axios.post(`/like/${nodeId}`)
-        .then(responseFromApi => {
-          console.log('Success!', responseFromApi);
-          if(responseFromApi.status == 204) {
-            node.className("bi-heart")? node.classList.remove("bi-heart"): node.classList.remove("bi-heart-fill")
-             node.className("bi-heart")? node.classList.add("bi-heart-fill"): node.classList.add("bi-heart")
-          
-          }
-        })
-        .catch(error => console.log('Error!', error))
-    })
-  }
+	const changeNodes = document.querySelectorAll('.like-btn');
+	console.log(changeNodes) for(let node of changeNodes) {
+	node.addEventListener('click', () => { const nodeId = node.dataset.id;
+	axios.post(`/like/${nodeId}`) .then(responseFromApi => {
+	console.log('Success!', responseFromApi); if(responseFromApi.status == 204) {
+	node.className("bi-heart")? node.classList.remove("bi-heart"):
+	node.classList.remove("bi-heart-fill") node.className("bi-heart")?
+	node.classList.add("bi-heart-fill"): node.classList.add("bi-heart") } })
+	.catch(error => console.log('Error!', error)) }) }
 </script>

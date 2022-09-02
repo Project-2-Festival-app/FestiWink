@@ -2,3 +2,50 @@
 Colores : #f6b3e5 , #c876ff , #7232f2, #20115b, #010108
 Colores gradientes  linear-gradient(-45deg, rgb(108, 14, 224) -5%, rgb(240, 55, 166));
  */
+
+/* DETAIL PAGE*/
+
+.party {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.detail {
+    background-color: #122932;
+    color: white;
+    height: 260px;
+}
+
+.detail-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+    position: absolute;
+    top: 48%;
+    left: 32%;
+}
+
+.detail-card p {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.detail-desc {
+ margin-top: 40px;
+ margin-left: 35px;
+ margin-bottom: 20px;
+}
+
+.info {
+    margin-left: 30px;
+}
+
+.info-more {
+    margin-left: 40px;
+    margin-top: 15px;
+}
+
+.buttons-detail {
+    display: flex;
+    gap: 1%;
+}
