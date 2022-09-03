@@ -41,6 +41,8 @@ router.get("/festivals/create",authMiddlewares.isAuthenticated, festController.c
 router.post("/festivals/create",authMiddlewares.isAuthenticated,fileUploader.single('image'), festController.doCreate);
 
 router.get("/festivals", festController.list)
+router.post("/festivals/:id/comment", authMiddlewares.isAuthenticated, festController.comment)
+//router.delete("/festivals/:id/comment", authMiddlewares.isAuthenticated, festController.deleteComment)
 router.get("/festivals/:id", festController.detail)
 
 

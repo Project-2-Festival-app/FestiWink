@@ -25,20 +25,61 @@
 	<div class="buttons-detail">
 		<a href="/festivals/" class="btn btn-dark mt-2">Go Back</a>
 		<a href="" class="btn btn-dark mt-2">Buy Ticket</a>
-		<button class="like-btn" data-id="{{festival._id}}">
-			<i class="bi bi-heart">DISLIKE</i>
-		</button>
+    <button class="like-btn-dislike btn btn-dark" data-id="{{festival._id}}"> 
+      <i class="like-btn" >: (</i>
+    </button>
 	</div>
+
+<h3 class="m-3">--Comments--</h3>
+{{#each festival.comments as | comment |}}
+<hr>
+<div class="m-4 container">
+  <p><b>Author :</b> {{comment.author}}</p>
+  <p><b>Comment :</b> {{comment.content}}</p>
+</div>
+{{/each}}
+
+<hr>
+ 
+<div class = "container">
+<h3>Add comment</h3>
+ 
+<form action="/festivals/{{festival._id}}/comment" method="POST">
+  <label for="comment-author-username">Your name:</label>
+  <input type="text" name="author" id="comment-author-username" />
+  
+  <textarea name="content" id="comment-content-input" cols="40" rows="3"></textarea>
+  <button type="submit">Comment</button>
+</form>
 </div>
 
+
 <script>
-	const changeNodes = document.querySelectorAll('.like-btn');
-	console.log(changeNodes) for(let node of changeNodes) {
-	node.addEventListener('click', () => { const nodeId = node.dataset.id;
-	axios.post(`/like/${nodeId}`) .then(responseFromApi => {
-	console.log('Success!', responseFromApi); if(responseFromApi.status == 204) {
-	node.className("bi-heart")? node.classList.remove("bi-heart"):
-	node.classList.remove("bi-heart-fill") node.className("bi-heart")?
-	node.classList.add("bi-heart-fill"): node.classList.add("bi-heart") } })
-	.catch(error => console.log('Error!', error)) }) }
+ const likeNode = document.querySelectorAll('.like-btn-dislike');
+
+  for(let node of likeNode) {
+    node.addEventListener('click', () => {
+      const nodeId = node.dataset.id;
+      console.log(nodeId)
+      axios.post(`/like/${nodeId}`)
+        .then(responseFromApi => {
+          console.log('Success!', responseFromApi);
+            const selectedLike = document.querySelector(`.like-btn-dislike[data-id="${nodeId}"]`);
+            const smileOrNot = document.querySelector(`.like-btn-dislike[data-id="${nodeId}"]>i`);
+          if(responseFromApi.status == 200) {
+            console.log(smileOrNot)
+            smileOrNot.textContent = "; )"
+            selectedLike.classList.remove("btn-dark")
+            selectedLike.classList.add("btn-info")
+          } 
+          if(responseFromApi.status == 204) {
+            smileOrNot.textContent = ": (";
+            selectedLike.classList.add("btn-dark")
+            selectedLike.classList.remove("btn-info")  
+
+          }
+        })
+        .catch(error => console.log('Error!', error))
+    })
+  }
 </script>
