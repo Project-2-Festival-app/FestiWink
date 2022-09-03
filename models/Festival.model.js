@@ -40,16 +40,18 @@ const festivalSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
     },
-    comments: {
-        type:[ mongoose.Schema.Types.ObjectId ],
-        ref: "Comment",
-    }
 },
 {
     toObject: { virtuals: true },
   }
 )
 
+festivalSchema.virtual("comments", {
+    ref: "Comment",
+    localField: "_id",
+    foreignField: "festival",
+    justOne: false,
+})
 
 const Festival = mongoose.model('Festival', festivalSchema);
 module.exports = Festival;

@@ -13,8 +13,8 @@
 </div>
 
 <div class="detail-desc">
-	<i>{{festival.description}}</i>
-</div>
+    <i>{{festival.description}}</i>
+	</div>
 <hr />
 
 <h3 class="info">Information</h3>
@@ -27,8 +27,8 @@
 		<a href="" class="btn btn-dark mt-2">Buy Ticket</a>
     <button class="like-btn-dislike btn btn-dark" data-id="{{festival._id}}"> 
       <i class="like-btn" >: (</i>
-    </button>
-	</div>
+  </button>
+</div>
 
 <h3 class="m-3">--Comments--</h3>
 {{#each festival.comments as | comment |}}
@@ -36,6 +36,11 @@
 <div class="m-4 container">
   <p><b>Author :</b> {{comment.author}}</p>
   <p><b>Comment :</b> {{comment.content}}</p>
+  <form class="btn-dark" action="/comment/{{comment._id}}/delete" method="POST"> 
+    <button type="submit">
+      <i>Delete</i> 
+    </button>
+  </form>
 </div>
 {{/each}}
 
@@ -44,7 +49,7 @@
 <div class = "container">
 <h3>Add comment</h3>
  
-<form action="/festivals/{{festival._id}}/comment" method="POST">
+<form action="/comment/{{festival._id}}" method="POST">
   <label for="comment-author-username">Your name:</label>
   <input type="text" name="author" id="comment-author-username" />
   
@@ -76,7 +81,6 @@
             smileOrNot.textContent = ": (";
             selectedLike.classList.add("btn-dark")
             selectedLike.classList.remove("btn-info")  
-
           }
         })
         .catch(error => console.log('Error!', error))

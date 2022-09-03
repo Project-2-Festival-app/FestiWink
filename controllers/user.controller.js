@@ -4,7 +4,7 @@ const Like = require("../models/Like.model")
 
 
 module.exports.profile = (req, res, next) => {
-  const userId = req.user._id.valueOf();
+  const userId = req.user._id;
 
   Like.find({ user: userId })
   .populate("festival")

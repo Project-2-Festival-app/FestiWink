@@ -26,17 +26,16 @@ module.exports.detail = (req, res, next) => {
 module.exports.comment = (req, res, next) => {
   const  festivalId  = req.params.id;
   const { author, content } = req.body;
-  const userId = req.user.id.valueOf()
+  const userId = req.user.id;
   Festival.findById( festivalId )
+    .populate("comments")
     .then((festival) => {
       console.log("entro en findById en comment")
       Comment.create({ festival: festivalId, user: userId, author, content })
-        .then(comment => {
-          console.log("comentario creado then ")
-          festival.comments.push(comment._id)
-          festival.save()
-            .then(updatedFesti => res.redirect (`/festivals/${updatedFesti._id}`))
-        })
+       .then((commentCreate) => {
+        console.log(commentCreate)
+        res.redirect (`/festivals/${festival._id}`)
+      })
     })
     .catch((err) => {
       console.log(`Error while creating the comment : ${ err }`);
@@ -44,12 +43,32 @@ module.exports.comment = (req, res, next) => {
       });
 };
 
+module.exports.deleteComment = ( req, res, next ) => {
+  const userId = req.user.id;
+  const commentId = req.params.id;
+
+  Comment.findOneAndDelete( { id: commentId, user: userId } )
+    .populate('festival')
+    .then( commentDeleted => {
+      return commentDeleted.festival
+    })
+    .then( (festival) => {
+      res.redirect(`/festivals/${festival.id}`)
+    })
+    .catch (err => {
+      console.log(err);
+      next(err)
+    })
+}
+
 module.exports.createFestival = (req, res, next) => {
   res.render("festival/form")
 };
 
 module.exports.doCreate = (req, res, next) => {
-    const festival = req.body;
+    const user = req.user
+    const festival = {...req.body, creator: user };
+
     if(req.file) {
         festival.image = req.file.path;
       }
