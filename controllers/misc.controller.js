@@ -9,16 +9,21 @@ module.exports.home = (req, res, next) => {
 module.exports.like = (req, res, next) => {
 	const userId = req.user._id.valueOf();
 	const festivalId = req.params.id;
-  console.log(userId, festivalId);
-	// Like.findById({ user: userId, festival: festivalId }).then((like) => {
-	// 	if (like) {
-	// 		console.log("exists");
-	// 	} else {
-	// 		return Like.create({
-	// 			user: userId,
-	// 			festival: festivalId,
-	// 		});
-	// 	}
-	// 	console.log(like);
-	// });
+
+	Like.findOneAndDelete({ user: userId, festival: festivalId })
+	.then((like) => {
+		if (like) {
+			console.log("exists");
+			res.status(204).send({ success: 'Like removed from data base'})
+		} else {
+			return Like.create({
+				user: userId,
+				festival: festivalId,
+			})
+			.then((like) => {
+				res.status(200).send({ success: 'Like removed from data base'})
+			});
+		}
+	})
+	.catch(err => next(err))	
 };

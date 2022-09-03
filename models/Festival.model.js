@@ -39,6 +39,10 @@ const festivalSchema = new mongoose.Schema({
     creator:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
+    },
+    comments: {
+        type:[ mongoose.Schema.Types.ObjectId ],
+        ref: "Comment",
     }
 },
 {
@@ -46,15 +50,6 @@ const festivalSchema = new mongoose.Schema({
   }
 )
 
-// VIRTUALS LIKE, COMMENT AND IMAGEN
-
-
-// commentSchema.virtual("comments", {
-//     ref: "Comment",
-//     localField: "_id",
-//     foreignField: "festival",
-//     justOne: false,
-//   });
 
 const Festival = mongoose.model('Festival', festivalSchema);
 module.exports = Festival;
