@@ -36,7 +36,7 @@
 <form action="/festivals/{{festival._id}}/comment" method="POST">
   <label for="comment-author-username">Your name:</label>
   <input type="text" name="author" id="comment-author-username" />
-  <input type="text" name="commentAuthor" id="comment-author" value="{{author.username}}" hidden />
+  
   <textarea name="content" id="comment-content-input" cols="40" rows="3"></textarea>
   <button type="submit">Comment</button>
 </form>
