@@ -12,10 +12,13 @@ module.exports.list = (req, res, next) => {
 };
 
 module.exports.detail = (req, res, next) => {
-  const { id } = req.params;
-  Festival.findById( id )
+  const festivalId  = req.params.id;
+  
+  Festival.findById( festivalId )
     .populate("comments")
     .then((festival) => {
+      // const bla = festival.creator.id.value
+      // let festivalOwner = bla === req.user.id ? true : false
       res.render("festival/detail", { festival });
     })
     .catch((err) => {
@@ -78,3 +81,18 @@ module.exports.doCreate = (req, res, next) => {
     })
     .catch(next);
 };
+
+module.exports.deleteFestival = (req, res, next ) => {
+  const userId = req.user.id;
+  const festivalId = req.params.id;
+
+  Festival.findOneAndDelete( { _id: festivalId, creator: userId })
+    .then((festivalDeleted) => {
+      console.log(festivalDeleted);
+      res.redirect("/festivals")
+    })
+    .catch(err => {
+      console.log(err);
+      next(err)
+    })
+}
