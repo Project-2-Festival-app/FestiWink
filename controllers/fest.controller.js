@@ -1,5 +1,4 @@
 const Festival = require("../models/Festival.model");
-
 const User = require("../models/User.model");
 const Comment = require("../models/Comment.model");
 
@@ -13,15 +12,27 @@ module.exports.list = (req, res, next) => {
 
 module.exports.detail = (req, res, next) => {
   const festivalId  = req.params.id;
-  
+  console.log("entro a detail");
   Festival.findById( festivalId )
     .populate("comments")
     .then((festival) => {
-      // const bla = festival.creator.id.value
-      // let festivalOwner = bla === req.user.id ? true : false
       res.render("festival/detail", { festival });
     })
     .catch((err) => {
+        next(err);
+      });
+};
+module.exports.doSearch = (req, res, next) => {
+  const  {name, category}   = req.body
+  console.log("entro a search");
+  //{ $or: [ { name:{ '$regex': /name/i}}, {category:{ $regex: new RegExp(category, "i") } }] }
+  Festival.find( {category: { $regex: new RegExp(category, "i")} } )
+    .then((festivals) => {
+      console.log(festivals);
+      res.render("festival/list", { festivals });
+    })
+    .catch((err) => {
+      console.log(err);
         next(err);
       });
 };
@@ -83,12 +94,13 @@ module.exports.doCreate = (req, res, next) => {
 };
 
 module.exports.deleteFestival = (req, res, next ) => {
-  const userId = req.user.id;
-  const festivalId = req.params.id;
+  const userId = req.user.id.valueOf();
+  const festivalId = req.params._id;
+  console.log(req.user.id, req.params.id)
 
-  Festival.findOneAndDelete( { _id: festivalId, creator: userId })
+  Festival.findOneAndDelete( { id: festivalId, creator: userId })
     .then((festivalDeleted) => {
-      console.log(festivalDeleted);
+      console.log("this is the ",festivalDeleted);
       res.redirect("/festivals")
     })
     .catch(err => {

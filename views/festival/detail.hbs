@@ -25,13 +25,13 @@
 	<div class="buttons-detail">
 		<a href="/festivals/" class="btn btn-dark mt-2">Go Back</a>
 		<a href="" class="btn btn-dark mt-2">Buy Ticket</a>
-{{!-- {{#if festivalOwner}} --}}
-  <form action="/festivals/{{festival.id}}/delete" method="POST">
+{{#if creatorOfFestival}}
+  <form action="/festivals/{{festival._id}}/delete" method="POST">
     <button type="submit">
       <i>Delete</i>
     </button>
   </form>
-{{!-- {{/if}} --}}
+{{/if}}
     <button class="like-btn-dislike btn btn-dark" data-id="{{festival._id}}"> 
       <i class="like-btn" >: (</i>
   </button>

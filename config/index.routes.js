@@ -40,6 +40,8 @@ router.post("/like/:id",authMiddlewares.isAuthenticated, miscController.like )
 router.get("/festivals/create",authMiddlewares.isAuthenticated, festController.createFestival);
 router.post("/festivals/create",authMiddlewares.isAuthenticated,fileUploader.single('image'), festController.doCreate);
 
+router.post("/festivals/search", festController.doSearch);
+
 router.get("/festivals", festController.list)
 
 //Festival's detail
