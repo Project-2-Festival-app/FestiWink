@@ -16,6 +16,8 @@ const SCOPES = [
 
 //MISC
 router.get("/", miscController.home);
+//      "/about"   miscController
+//      "/contactUs"    miscController
 
 // AUTH
 router.get("/register", authController.register);
@@ -53,12 +55,10 @@ router.post("/festivals/:id/delete", authMiddlewares.isAuthenticated, festContro
 router.post("/comment/:id", authMiddlewares.isAuthenticated, festController.comment)
 router.post("/comment/:id/delete", authMiddlewares.isAuthenticated, festController.deleteComment)
 
+//Edit festival
+router.get("/festivals/:id/edit", authMiddlewares.isAuthenticated, festController.editFestival);
+router.post("/festivals/:id/edit", authMiddlewares.isAuthenticated, festController.doEdit);
 
-
-/*
-router.get("/festivals/:id/edit", festController.editFestival);
-router.post("/festivals/:id/edit", festController.doEdit);
-*/
 
 
 module.exports = router;

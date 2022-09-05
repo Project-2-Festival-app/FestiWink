@@ -32,9 +32,16 @@
     </button>
   </form>
 {{/if}}
-    <button class="like-btn-dislike btn btn-dark" data-id="{{festival._id}}"> 
+ <a class="edit btn btn-dark" href="/festivals/{{festival.id}}/edit">Edit</a>
+ {{#if isLike}}
+    <button class="like-btn-dislike btn btn-info" data-id="{{festival._id}}"> 
+      <i class="like-btn" >; )</i>
+  </button>
+{{else}}
+  <button class="like-btn-dislike btn btn-dark" data-id="{{festival._id}}"> 
       <i class="like-btn" >: (</i>
   </button>
+{{/if}}
 </div>
 
 <hr>

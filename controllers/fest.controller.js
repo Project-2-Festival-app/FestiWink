@@ -1,6 +1,8 @@
 const Festival = require("../models/Festival.model");
 const User = require("../models/User.model");
 const Comment = require("../models/Comment.model");
+const Like = require("../models/Like.model");
+const { like } = require("./misc.controller");
 
 module.exports.list = (req, res, next) => {
   Festival.find()
@@ -12,16 +14,37 @@ module.exports.list = (req, res, next) => {
 
 module.exports.detail = (req, res, next) => {
   const festivalId  = req.params.id;
-  const userId = req.user.id;
- 
-  Festival.findById( festivalId )
-    .populate("comments")
+  const userId = req.user._id.toString();
+  let isLike = false
+
+  console.log(festivalId, userId);
+ Like.findOne({user: userId, festival: festivalId})
+.populate({
+  path: "festival" ,
+  populate: {
+    path: "comments"
+  }
+})
+.then(like => {
+  if (like) {
+    console.log(like);
+    isLike = true
+    return like.festival
+  } else {
+    return Festival.findById( festivalId )
+      .populate("comments")
+      .then((festival) => {
+        return festival
+      })
+  }
+})
     .then((festival) => {
+      console.log(festival);
       if(festival.creator){
         const sameUser = festival.creator._id.valueOf() === userId ? true : false
-        res.render("festival/detail", { festival, sameUser });
+        res.render("festival/detail", { festival, sameUser, isLike: isLike });
       }else{
-        res.render("festival/detail", { festival});
+        res.render("festival/detail", { festival, isLike});
       }
     })
     .catch((err) => {
@@ -99,6 +122,23 @@ module.exports.doCreate = (req, res, next) => {
     })
     .catch(next);
 };
+
+module.exports.editFestival = (req, res, next) =>{
+  const { id } = req.params
+  Festival.findByIdAndUpdate(id)
+    .then( festival => {
+      res.render("festival/form", { festival, isEdit: true })
+    })
+    .catch( err => next(err))
+}
+module.exports.doEdit = (req, res, next) =>{
+  const { id } = req.params
+  Festival.findByIdAndUpdate(id, req.body, { new: true})
+    .then( festival => {
+      res.redirect("/festivals")
+    })
+    .catch( err => next(err))
+}
 
 module.exports.deleteFestival = (req, res, next ) => {
   const userId = req.user.id.valueOf();

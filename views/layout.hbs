@@ -48,7 +48,11 @@
         }
       }
     }
-    document.querySelector('.password-toggle') ? .addEventListener('click', tooglePassword);
+    const element = document.querySelector('.password-toggle')
+
+    if (element) {
+      element.addEventListener('click', tooglePassword)
+    };
   </script>
 </body>
 
