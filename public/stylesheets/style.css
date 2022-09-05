@@ -54,6 +54,43 @@ Colores gradientes  linear-gradient(-45deg, rgb(108, 14, 224) -5%, rgb(240, 55, 
     gap: 1%;
 }
 
+.comment {
+    color: grey;
+}
+
+.author {
+    text-transform: capitalize
+}
+
+.comment-grid {
+    display: flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+   
+}
+
+.comment-card {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 1px 1px 15px 0.5px rgba(0, 0, 0, 0.125);
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+	background-color: white;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
 
 /* LOGIN PAGE*/
 

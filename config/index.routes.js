@@ -44,6 +44,7 @@ router.post("/festivals/search", festController.doSearch);
 
 router.get("/festivals", festController.list)
 
+
 //Festival's detail
 router.get("/festivals/:id", festController.detail)
 router.post("/festivals/:id/delete", authMiddlewares.isAuthenticated, festController.deleteFestival)
@@ -51,6 +52,7 @@ router.post("/festivals/:id/delete", authMiddlewares.isAuthenticated, festContro
 //Comment festival
 router.post("/comment/:id", authMiddlewares.isAuthenticated, festController.comment)
 router.post("/comment/:id/delete", authMiddlewares.isAuthenticated, festController.deleteComment)
+
 
 
 /*

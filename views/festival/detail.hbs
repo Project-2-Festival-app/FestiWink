@@ -1,4 +1,4 @@
-<div class="card mb-3 detail">
+<div class="card mb-3 detail rounded-0">
 	<img
 		src={{festival.image}}
 		class="m-4 rounded party"
@@ -37,24 +37,31 @@
   </button>
 </div>
 
-<h3 class="m-3">--Comments--</h3>
-{{#each festival.comments as | comment |}}
 <hr>
-<div class="m-4 container">
-  <p><b>Author :</b> {{comment.author}}</p>
-  <p><b>Comment :</b> {{comment.content}}</p>
-  <form class="btn-dark" action="/comment/{{comment._id}}/delete" method="POST"> 
-    <button type="submit">
-      <i>Delete</i> 
-    </button>
-  </form>
-</div>
+<h3 class="m-3 comment">Leave your comment</h3>
+<div class="comment-grid">
+{{#each festival.comments as | comment |}}
+  <div class="comment-card">
+    <div class="card-text">
+      <h5 class="author">{{comment.author}}</h5>
+      <hr>
+      <p>{{comment.content}}</p>
+      <form action="/comment/{{comment._id}}/delete" method="POST"> 
+       <button class="btn btn-danger " type="submit">
+       <i>Delete</i> 
+       </button>
+      </form>
+    </div>
+  </div>
 {{/each}}
+</div>
+
+
 
 <hr>
- 
+
+<h3 class="comment">Add a comment</h3>
 <div class = "container">
-<h3>Add comment</h3>
  
 <form action="/comment/{{festival._id}}" method="POST">
   <label for="comment-author-username">Your name:</label>
