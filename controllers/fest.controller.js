@@ -12,13 +12,20 @@ module.exports.list = (req, res, next) => {
 
 module.exports.detail = (req, res, next) => {
   const festivalId  = req.params.id;
-  console.log("entro a detail");
+  const userId = req.user.id;
+ 
   Festival.findById( festivalId )
     .populate("comments")
     .then((festival) => {
-      res.render("festival/detail", { festival });
+      if(festival.creator){
+        const sameUser = festival.creator._id.valueOf() === userId ? true : false
+        res.render("festival/detail", { festival, sameUser });
+      }else{
+        res.render("festival/detail", { festival});
+      }
     })
     .catch((err) => {
+      console.log(err);
         next(err);
       });
 };
