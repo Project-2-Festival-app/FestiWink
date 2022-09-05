@@ -40,10 +40,17 @@ router.post("/like/:id",authMiddlewares.isAuthenticated, miscController.like )
 router.get("/festivals/create",authMiddlewares.isAuthenticated, festController.createFestival);
 router.post("/festivals/create",authMiddlewares.isAuthenticated,fileUploader.single('image'), festController.doCreate);
 
+router.post("/festivals/search", festController.doSearch);
+
 router.get("/festivals", festController.list)
+
+//Festival's detail
+router.get("/festivals/:id", festController.detail)
+router.post("/festivals/:id/delete", authMiddlewares.isAuthenticated, festController.deleteFestival)
+
+//Comment festival
 router.post("/comment/:id", authMiddlewares.isAuthenticated, festController.comment)
 router.post("/comment/:id/delete", authMiddlewares.isAuthenticated, festController.deleteComment)
-router.get("/festivals/:id", festController.detail)
 
 
 /*
