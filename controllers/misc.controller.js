@@ -3,7 +3,11 @@ const Festival = require("../models/Festival.model");
 const mongoose = require("mongoose");
 
 module.exports.home = (req, res, next) => {
-	res.render("home");
+	Festival.find()
+	.then( festivals => {
+		res.render("home", { festivals });
+	})
+	.catch(err => next(err))
 };
 
 module.exports.like = (req, res, next) => {
