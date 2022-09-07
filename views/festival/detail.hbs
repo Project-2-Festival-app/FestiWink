@@ -11,11 +11,10 @@
 		<p class="card-text"><small class="text-muted">{{festival.date}}</small></p>
 	</div>
 </div>
-
 <div class="detail-desc">
     <i>{{festival.description}}</i>
 	</div>
-<hr />
+<hr/>
 
 <h3 class="info">Information</h3>
 <div class="info-more">
@@ -31,8 +30,9 @@
       <i>Delete</i>
     </button>
   </form>
+   <a class="edit btn btn-dark" href="/festivals/{{festival.id}}/edit">Edit</a>
 {{/if}}
- <a class="edit btn btn-dark" href="/festivals/{{festival.id}}/edit">Edit</a>
+
  {{#if isLike}}
     <button class="like-btn-dislike btn btn-info" data-id="{{festival._id}}"> 
       <i class="like-btn" >; )</i>
@@ -63,8 +63,6 @@
 {{/each}}
 </div>
 
-
-
 <hr>
 
 <h3 class="comment">Add a comment</h3>
@@ -86,7 +84,6 @@
 
 <script>
  const likeNode = document.querySelectorAll('.like-btn-dislike');
-
   for(let node of likeNode) {
     node.addEventListener('click', () => {
       const nodeId = node.dataset.id;
