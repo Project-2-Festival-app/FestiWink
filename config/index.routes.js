@@ -16,8 +16,8 @@ const SCOPES = [
 
 //MISC
 router.get("/", miscController.home);
-//      "/about"   miscController
-//      "/contactUs"    miscController
+router.get("/about",  miscController.about);
+router.get("/contactUs", miscController.contact);
 
 // AUTH
 router.get("/register", authController.register);

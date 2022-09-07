@@ -1,83 +1,90 @@
 <div class="background-img-2 ">
 </div>
 <div class="body-2">
-		<div class="conten">
-			<div class="item-container">
-				<h2 class="log-in">Register</h2>
-			</div>
-			<form action="/login" method="post">
-				<div class="form-input mb-2">
-					<label for="name" class="label">Name</label>
-					<input
-					type="text" name="name"
-          class="custom-form-control form-control py-2 ps-4 {{#if errors}}is-invalid{{/if}}"
-          placeholder=""
-          aria-label="User email"
-          value="{{user.email}}"
-					/>
-				</div>
-        <div class="form-input mb-2">
-					<label for="email" class="label">Email</label>
-					<input
-					type="text" name="email"
-          class="custom-form-control form-control py-2 ps-4 {{#if errors}}is-invalid{{/if}}"
-          placeholder="Email: user@example.org"
-          aria-label="User email"
-          value="{{user.email}}"
-					/>
-				</div>
-				<div class="form-input mb-2">
-					<label for="password" class="label">Password</label>
-					<input
-					id="password-input"
-          type="password"
-          name="password"
-          class="custom-form-control form-control py-2 ps-4 {{#if errors}}is-invalid{{/if}}"
-          placeholder="Password"
-          aria-label="User password"
-					/>
-				</div>
-        <div class="form-input mb-2">
-					<label for="roll" class="label">Roll</label>
-					<select
-          name="roll"
-          class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
-          placeholder="Roll"
-          aria-label="Roll"
-          value="{{ user.Roll }}"
-        />
-         <option selected disabled hidden value="none" class="label">Select Roll</option>
-         <option value="User">User</option>
-         <option value="Creator">Creator</option>
-         <option value="Admin">Admin</option>
-        </select>
-        {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
-				</div>
-        <div class="form-input mb-2">
-          <label for="image" class="label">Select image</label>
-          <input
-          type="file"
-          name="image"
-          class="custom-form-control form-control py-2 ps-4 {{#if errors.image}}is-invalid{{/if}}"
-          placeholder="Upload Image"
-          aria-label="User name"
-          value="{{ user.image }}"
-        >
-        {{#if errors.image}}<div class="invalid-feedback">{{ errors.image }}</div>{{/if}}
+  <div class="conten">
+    <div class="item-container">
+      <h2 class="log-in">Register</h2>
+    </div>
+    <form action="/login" method="post">
+      <div class="row row-cols-2">
+
+        <div>
+          <div class="form-input mb-2">
+            <label for="name" class="label">Name</label>
+            <input type="text" name="name"
+              class="custom-form-control form-control py-2 ps-4 {{#if errors}}is-invalid{{/if}}" placeholder=""
+              aria-label="User email" value="{{user.email}}" />
+          </div>
+          <div class="form-input mb-2">
+            <label for="email" class="label">Email</label>
+            <input type="text" name="email"
+              class="custom-form-control form-control py-2 ps-4 {{#if errors}}is-invalid{{/if}}"
+              placeholder="Email: user@example.org" aria-label="User email" value="{{user.email}}" />
+          </div>
+          <div class="form-input mb-2">
+            <label for="password" class="label">Password</label>
+            <input id="password-input" type="password" name="password"
+              class="custom-form-control form-control py-2 ps-4 {{#if errors}}is-invalid{{/if}}" placeholder="Password"
+              aria-label="User password" />
+          </div>
         </div>
-			
+
+        <div>
+          <div class="form-input mb-2">
+            <label for="roll" class="label">Roll</label>
+            <select name="roll" class="custom-form-control form-control py-2 ps-4 {{#if error}}is-invalid{{/if}}"
+              placeholder="Roll" aria-label="Roll" value="{{ user.Roll }}" />
+            <option selected disabled hidden value="none" class="label">Select Roll</option>
+            <option value="User">User</option>
+            <option value="Creator">Creator</option>
+            <option value="Admin">Admin</option>
+            </select>
+            {{#if error}}<div class="text-danger text-center mb-2">{{ error }}</div>{{/if}}
+          </div>
+          <div class="form-input mb-2">
+            <label for="image" class="label">Select image</label>
+            <input type="file" name="image"
+              class="custom-form-control form-control py-2 ps-4 {{#if errors.image}}is-invalid{{/if}}"
+              placeholder="Upload Image" aria-label="User name" value="{{ user.image }}">
+            {{#if errors.image}}<div class="invalid-feedback">{{ errors.image }}</div>{{/if}}
+          </div>
+
+          <div class="form-input mb-2 flex-row justify-content-between mt-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+              <label class="form-check-label" for="flexCheckChecked">
+                Rememer me ;)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Maybe :/
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Or not :(
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
       {{#if message}}<div class="text-center mb-2">{{message}}</div>{{/if}}
       {{#if errors}}<div class="text-danger text-center mb-2">{{ errors }}</div>{{/if}}
 
-				<div>
-					<button type="submit" class="login-btn">Login</button>
-				</div>
-				<div class="d-grid gap-2 mt-2">
-					<a href="/login/google" class="btn btn-danger border-0 google">
-					  <i class="fa fa-google"></i>
-					  Login with Google
-					</a>
-				  </div> 
-			</form>
-		</div>
+      <div>
+        <button type="submit" class="login-btn">Register</button>
+      </div>
+      <div class="d-grid gap-2 mt-2 p-left-1">
+        <a href="/login/google" class="btn btn-danger border-0 google">
+          <i class="fa fa-google"></i>
+          Login with Google
+        </a>
+      </div>
+    </form>
+  </div>
 </div>

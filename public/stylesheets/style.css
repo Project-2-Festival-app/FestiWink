@@ -139,10 +139,6 @@ body {
     margin-left: 20px;
 }
 
-.btn{
-    margin-left: 20px;
-}
-
 .comment-form-name {
     padding: var(--primary-padding);
     width: 400px;
@@ -157,7 +153,7 @@ body {
 
 
 .festival-bg {
-    background: url("../images/2.png");
+    background: url("../images/ojo.jpg");
     height: 100vh;
     width: 100%;
     background-position: center 100%;
@@ -260,16 +256,7 @@ NAVBAR
     border-radius: 50%;
 }
 
-/*
-.fv-carousel__feed::-webkit-scrollbar {
-    display: none;
-     no scrolling bar
-} */
-
-
-
 /* LOGIN PAGE*/
-
 
 .forms {
     margin-top: 90px;

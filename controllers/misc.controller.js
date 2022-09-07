@@ -12,6 +12,14 @@ module.exports.home = (req, res, next) => {
 	.catch(err => next(err))
 };
 
+module.exports.about = (req, res, next) => {
+	res.render('misc/about');
+}
+
+module.exports.contact = (req, res, next) => {
+	res.render('misc/contact');
+}
+
 module.exports.like = (req, res, next) => {
 	const userId = req.user._id.valueOf();
 	const festivalId = req.params.id;
