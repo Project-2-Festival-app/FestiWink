@@ -1,46 +1,48 @@
-<div class="page">
-  <img class="page-img" src="../images/2.png" alt="galaxy">
+<div class="page ">
+  <img class="page-img" src="../images/2.png" style="height:810px;" alt="galaxy">
   <div class="front-div">
     <div class="container" style="height: 5rem; width: 100%">
-         <h1 style="color: white;">estoy en home</h1>
-    <img src="" alt="">
+      <hr>
+      <h1 style="color: white;" class="text-center">Choose your party !!</h1>
+      <hr>
     </div>
-    <div class="card-group">
- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-    <div class="carousel-inner">
-      <div class="fv-carousel__feed transparent">
-        {{#each festivals as |festival|}}
-        <div class="fv-carousel__item active transparent carousel-item" style="width: 15rem;">
-          <div class="mb-4 d-flex justify-content-center" data-id="{{festival._id}}">
-            <div class="card shadow bg-body rounded shadow p-3 mb-5" style="width: 15rem;">
-              <img src="{{festival.image}}" class="card-img-top" alt="{{festival.name}}">
-              <div class="card-body text-center ">
-                <h6 class="card-title text-uppercase ">{{festival.name}}</h6>
-                <div class="d-flex justify-content-center mt-2">
-                  <a href="/festivals/{{festival._id}}" class="btn btn-dark ">Details</a>
-                </div>
+    <div class="scrolling-wrapper">
+      {{#each festivals as |festival|}}
+      <div class="card myCard transparent">
+        <div class="mb-3 d-flex justify-content-center" data-id="{{festival._id}}">
+          <div class="rounded p-3 mb-5" style="width: 15rem;">
+            <img src="{{festival.image}}" class="card-img-top" alt="{{festival.name}}">
+            <div class="card-body text-center ">
+              <h6 class="card-title text-uppercase ">{{festival.name}}</h6>
+              <div class="d-flex justify-content-center mt-2">
+                <a href="/festivals/{{festival._id}}" class="btn btn-dark ">Details</a>
               </div>
             </div>
           </div>
         </div>
-        {{/each}}
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      </div>
-      </div>
+      {{/each}}
     </div>
+
+    {{!-- 
+    <h1 style="color: white;" class="text-center"><i>Coming soon : </i></h1>
+    <div class="scrolling-wrapper">
+      {{#each festivalByDate as |festival|}}
+      <div class="card transparent">
+        <div class="mb-3 d-flex justify-content-center" data-id="{{festival._id}}">
+          <div class="rounded p-3 mb-5" style="width: 15rem;">
+            <img src="{{festival.image}}" class="card-img-top" alt="{{festival.name}}">
+            <div class="card-body text-center ">
+              <h6 class="card-title text-uppercase ">{{festival.name}}</h6>
+              <div class="d-flex justify-content-center mt-2">
+                <a href="/festivals/{{festival._id}}" class="btn btn-dark ">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div> --}}
   </div>
 </div>
-</div>
-</div>
-
-

@@ -5,7 +5,9 @@ const mongoose = require("mongoose");
 module.exports.home = (req, res, next) => {
 	Festival.find()
 	.then( festivals => {
-		res.render("home", { festivals });
+		let festivalByDate = festivals.sort((a,b) => b.date -a.date)
+		console.log(festivalByDate);
+		res.render("home", { festivals, festivalByDate });
 	})
 	.catch(err => next(err))
 };
