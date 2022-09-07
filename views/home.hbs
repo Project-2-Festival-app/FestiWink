@@ -1,15 +1,14 @@
 <div class="page ">
-  <img class="page-img" src="../images/2.png" style="height:760px;" alt="galaxy">
+  <img class="page-img" src="../images/2.png" style="height:810px;" alt="galaxy">
   <div class="front-div">
     <div class="container" style="height: 5rem; width: 100%">
       <hr>
       <h1 style="color: white;" class="text-center">Choose your party !!</h1>
       <hr>
-      <img src="" alt="">
     </div>
     <div class="scrolling-wrapper">
       {{#each festivals as |festival|}}
-      <div class="card transparent">
+      <div class="card myCard transparent">
         <div class="mb-3 d-flex justify-content-center" data-id="{{festival._id}}">
           <div class="rounded p-3 mb-5" style="width: 15rem;">
             <img src="{{festival.image}}" class="card-img-top" alt="{{festival.name}}">

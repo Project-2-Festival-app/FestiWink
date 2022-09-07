@@ -46,6 +46,9 @@
         {{!-- <input class="form-control me-1" type="search" placeholder="Search by Name" name="name"> --}}
         <button class="btn btn-outline-info" type="submit">Search</button>
       </form>
+      {{#if currentUser}}
+      <img src="{{currentUser.image}}" alt="" class="nav-bar-img" >
+      {{/if}}
     </div>
   </div>
 </nav>
