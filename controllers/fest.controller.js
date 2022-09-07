@@ -14,11 +14,13 @@ module.exports.list = (req, res, next) => {
 
 module.exports.detail = (req, res, next) => {
 	const festivalId = req.params.id;
-
+  const user = req.user;
+  console.log("entro en detail");
 	let isLike = false;
 
-	if (req.user) {
+	if (user) {
 		const userId = req.user._id.toString();
+    console.log("entro en user");
 		Like.findOne({ user: userId, festival: festivalId })
 			.populate({
 				path: "festival",
@@ -64,13 +66,7 @@ module.exports.detail = (req, res, next) => {
 				next(err);
 			});
 	}
-  Festival.find()
-    .then((festivals) => {
-      res.render("festival/list", {
-        festivals
-      });
-    })
-    .catch((err) => next(err));
+
 };
 
 

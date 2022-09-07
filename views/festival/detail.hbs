@@ -1,108 +1,103 @@
 <div class="card mb-3 detail rounded-0">
-	<img
-		src={{festival.image}}
-		class="m-4 rounded party"
-		width="370"
-		height="280"
-		alt={{festival.name}}
-	/>
-	<div class="card-body detail-card">
-		<h1 class="card-title text-uppercase">{{festival.name}}</h1>
-		<p class="card-text"><small class="text-muted">{{festival.date}}</small></p>
-	</div>
+  <img src={{festival.image}} class="m-4 rounded party" width="370" height="280" alt={{festival.name}} />
+  <div class="card-body detail-card">
+    <h1 class="card-title text-uppercase">{{festival.name}}</h1>
+    <p class="card-text"><small class="text-muted">{{festival.date}}</small></p>
+  </div>
 </div>
 <div class="detail-desc">
-    <i>{{festival.description}}</i>
-	</div>
-<hr/>
+  <i>{{festival.description}}</i>
+</div>
+<hr />
 
 <h3 class="info">Information</h3>
 <div class="info-more">
-	<p><b>Place :</b> {{festival.location}}</p>
-	<p><b>Date :</b> {{festival.date}}</p>
-	<p><b>Price :</b> {{festival.price}}</p>
-	<div class="buttons-detail">
-		<a href="/festivals/" class="btn btn-dark mt-2">Go Back</a>
-		<a href="" class="btn btn-dark mt-2">Buy Ticket</a>
-{{#if sameUser}}
-  <form action="/festivals/{{festival._id}}/delete" method="POST">
-    <button type="submit">
-      <i>Delete</i>
-    </button>
-  </form>
-   <a class="edit btn btn-dark" href="/festivals/{{festival.id}}/edit">Edit</a>
-{{/if}}
+  <p><b>Place :</b> {{festival.location}}</p>
+  <p><b>Date :</b> {{festival.date}}</p>
+  <p><b>Price :</b> {{festival.price}}</p>
+  <div class="buttons-detail">
+    <a href="/festivals/" class="btn btn-dark mt-2">Go Back</a>
+    <a href="" class="btn btn-dark mt-2">Buy Ticket</a>
+    {{#if sameUser}}
+    <form action="/festivals/{{festival._id}}/delete" method="POST">
+      <button type="submit">
+        <i>Delete</i>
+      </button>
+    </form>
+    <a class="edit btn btn-dark" href="/festivals/{{festival.id}}/edit">Edit</a>
+    {{/if}}
+    {{#if currentUser}}
+      {{#if isLike}}
+      <button class="like-btn-dislike btn btn-info" data-id="{{festival._id}}">
+        <i class="like-btn">; )</i>
+      </button>
+    {{else}}
+      <button class="like-btn-dislike btn btn-dark" data-id="{{festival._id}}">
+        <i class="like-btn">: (</i>
+      </button>
+      {{/if}}
+    {{/if}}
+  </div>
 
- {{#if isLike}}
-    <button class="like-btn-dislike btn btn-info" data-id="{{festival._id}}"> 
-      <i class="like-btn" >; )</i>
-  </button>
-{{else}}
-  <button class="like-btn-dislike btn btn-dark" data-id="{{festival._id}}"> 
-      <i class="like-btn" >: (</i>
-  </button>
-{{/if}}
-</div>
-
-<hr>
-<h3 class="m-3 comment">Leave your comment</h3>
-<div class="comment-grid">
-{{#each festival.comments as | comment |}}
-  <div class="comment-card">
-    <div class="card-text">
-      <h5 class="author">{{comment.author}}</h5>
-      <hr>
-      <p>{{comment.content}}</p>
-      <form action="/comment/{{comment._id}}/delete" method="POST"> 
-       <button class="btn btn-danger " type="submit">
-       <i>Delete</i> 
-       </button>
-      </form>
+  <hr>
+  <h3 class="m-3 comment">Leave your comment</h3>
+  <div class="comment-grid">
+    {{#each festival.comments as | comment |}}
+    <div class="comment-card">
+      <div class="card-text">
+        <h5 class="author">{{comment.author}}</h5>
+        <hr>
+        <p>{{comment.content}}</p>
+        <form action="/comment/{{comment._id}}/delete" method="POST">
+          <button class="btn btn-danger " type="submit">
+            <i>Delete</i>
+          </button>
+        </form>
+      </div>
     </div>
+    {{/each}}
   </div>
-{{/each}}
-</div>
 
-<hr>
+  <hr>
 
-<h3 class="comment">Add a comment</h3>
+  <h3 class="comment">Add a comment</h3>
 
- 
-<form action="/comment/{{festival._id}}" method="POST">
- <div class="comment-form">
-    <label for="comment-author-username" class="comment-form-label">Your name:</label>
-    <input class="comment-form-name" type="t" name="author" id="comment-author-username" />
 
-    <textarea class="comment-form-txt" name="content" id="comment-content-input" ></textarea>
-    <button type="submit"  class="btn btn-dark mt-3 ">Submit</button>  
-  </div>
-</form>
+  <form action="/comment/{{festival._id}}" method="POST">
+    <div class="comment-form">
+      <label for="comment-author-username" class="comment-form-label">Your name:</label>
+      <input class="comment-form-name" type="t" name="author" id="comment-author-username" />
+
+      <textarea class="comment-form-txt" name="content" id="comment-content-input"></textarea>
+      <button type="submit" class="btn btn-dark mt-3 ">Submit</button>
+    </div>
+  </form>
 </div>
 
 
 
 
 <script>
- const likeNode = document.querySelectorAll('.like-btn-dislike');
-  for(let node of likeNode) {
+  const likeNode = document.querySelectorAll('.like-btn-dislike');
+  for (let node of likeNode) {
     node.addEventListener('click', () => {
       const nodeId = node.dataset.id;
       console.log(nodeId)
       axios.post(`/like/${nodeId}`)
         .then(responseFromApi => {
           console.log('Success!', responseFromApi);
-            const selectedLike = document.querySelector(`.like-btn-dislike[data-id="${nodeId}"]`);
-            const smileOrNot = document.querySelector(`.like-btn-dislike[data-id="${nodeId}"]>i`);
-          if(responseFromApi.status == 200) {
+          const selectedLike = document.querySelector(`.like-btn-dislike[data-id="${nodeId}"]`);
+          const smileOrNot = document.querySelector(`.like-btn-dislike[data-id="${nodeId}"]>i`);
+          if (responseFromApi.status == 200) {
             console.log(smileOrNot)
             smileOrNot.textContent = "; )"
             selectedLike.classList.remove("btn-dark")
             selectedLike.classList.add("btn-info")
-          } 
-          if(responseFromApi.status == 204) {
+          }
+          if (responseFromApi.status == 204) {
             smileOrNot.textContent = ": (";
             selectedLike.classList.add("btn-dark")
-            selectedLike.classList.remove("btn-info")  
+            selectedLike.classList.remove("btn-info")
           }
         })
         .catch(error => console.log('Error!', error))
