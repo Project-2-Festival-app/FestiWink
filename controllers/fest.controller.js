@@ -5,6 +5,65 @@ const Like = require("../models/Like.model");
 const { like } = require("./misc.controller");
 
 module.exports.list = (req, res, next) => {
+	Festival.find()
+		.then((festivals) => {
+			res.render("festival/list", { festivals });
+		})
+		.catch((err) => next(err));
+};
+
+module.exports.detail = (req, res, next) => {
+	const festivalId = req.params.id;
+
+	let isLike = false;
+
+	if (req.user) {
+		const userId = req.user._id.toString();
+		Like.findOne({ user: userId, festival: festivalId })
+			.populate({
+				path: "festival",
+				populate: {
+					path: "comments",
+				},
+			})
+			.then((like) => {
+				if (like) {
+					console.log(like);
+					isLike = true;
+					return like.festival;
+				} else {
+					return Festival.findById(festivalId)
+						.populate("comments")
+						.then((festival) => {
+							return festival;
+						});
+				}
+			})
+			.then((festival) => {
+				console.log(festival);
+				if (festival.creator) {
+					const sameUser =
+						festival.creator._id.valueOf() === userId ? true : false;
+					res.render("festival/detail", { festival, sameUser, isLike: isLike });
+				} else {
+					res.render("festival/detail", { festival, isLike });
+				}
+			})
+			.catch((err) => {
+				console.log(err);
+				next(err);
+			});
+	} else {
+		Festival.findById(festivalId)
+			.populate("comments")
+			.then((festival) => {
+					res.render("festival/detail", { festival, isLike });
+			})
+			.catch((err) => {
+				console.log(err);
+				next(err);
+			});
+	}
   Festival.find()
     .then((festivals) => {
       res.render("festival/list", {
@@ -14,54 +73,6 @@ module.exports.list = (req, res, next) => {
     .catch((err) => next(err));
 };
 
-module.exports.detail = (req, res, next) => {
-  const festivalId = req.params.id;
-  const userId = req.user._id.toString();
-  let isLike = false
-
-  Like.findOne({
-      user: userId,
-      festival: festivalId
-    })
-    .populate({
-      path: "festival",
-      populate: {
-        path: "comments"
-      }
-    })
-    .then(like => {
-      if (like) {
-        console.log(like);
-        isLike = true
-        return like.festival
-      } else {
-        return Festival.findById(festivalId)
-          .populate("comments")
-          .then((festival) => {
-            return festival
-          })
-      }
-    })
-    .then((festival) => {
-      if (festival.creator) {
-        const sameUser = festival.creator._id.valueOf() === userId ? true : false
-        res.render("festival/detail", {
-          festival,
-          sameUser,
-          isLike: isLike
-        });
-      } else {
-        res.render("festival/detail", {
-          festival,
-          isLike
-        });
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      next(err);
-    });
-};
 
 module.exports.doSearch = (req, res, next) => {
   const {
@@ -137,7 +148,7 @@ module.exports.deleteComment = (req, res, next) => {
 }
 
 module.exports.createFestival = (req, res, next) => {
-  res.render("festival/form")
+	res.render("festival/form");
 };
 
 module.exports.doCreate = (req, res, next) => {

@@ -1,19 +1,28 @@
-<div class="container">
-  <div class="row">
-    <div class="col text-center mt-4">
-      <img src="{{currentUser.image}}" class="rounded-circle border border-3 m-4" width="200" alt={{currentUser.name}} referrerpolicy="no-referrer"/>
-      <h2>Hi {{currentUser.name}}, welcome to your profile!</h2>
-      <h3>Roll: {{currentUser.roll}}</h3>
-      <hr class="my-4">
-    </div>
-
-    {{#each likes as |like| }}
-    <div class="col text-center mt-4 container">
-      <img src="{{like.festival.image}}" class="rounded-circle border border-3 m-4" width="200" alt={{like.festival.name}} referrerpolicy="no-referrer"/>
-      <h2>{{like.festival.name}}!</h2>
-      <h3>Price: {{like.festival.price}}</h3>
-      <hr class="my-4">
-    </div>
-    {{/each}}
-  </div>
+<div class="welcome">
+    <h2>Hi {{currentUser.name}}, welcome to your profile!</h2>
+    <img src="{{currentUser.image}}" class="rounded-circle border border-3 m-4" width="200" alt={{currentUser.name}} referrerpolicy="no-referrer"/>
 </div>
+
+<hr>
+<h3 class="m-3 comment"> Your favorites</h3>
+
+
+<div class="container">
+   <div class="row">
+    {{#each likes as |like| }}
+      <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+        <div class="card shadow bg-body rounded shadow p-3 mb-5 bg-body rounded" style="width: 20rem;">
+          <img src="{{like.festival.image}}" class="card-img-top" width="200" alt={{like.festival.name}} referrerpolicy="no-referrer"/>
+             <div class="card-body text-center ">
+                <h6 class="card-title text-uppercase">{{like.festival.name}}</h6>
+             </div>
+             <div class="d-flex justify-content-center">
+                <a href="/festivals/{{festival._id}}" class="btn btn-dark ">See Details</a>
+              </div>
+        </div>
+      </div>
+    {{/each}}
+   </div>
+</div>
+
+  

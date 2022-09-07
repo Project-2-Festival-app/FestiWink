@@ -66,14 +66,21 @@
 <hr>
 
 <h3 class="comment">Add a comment</h3>
-<div class = "container">
+
+ 
 <form action="/comment/{{festival._id}}" method="POST">
-  <label>Your name:</label>
-  <input type="text" name="author"/>
-  <textarea name="content" cols="40" rows="3"></textarea>
-  <button type="submit">Comment</button>
+ <div class="comment-form">
+    <label for="comment-author-username" class="comment-form-label">Your name:</label>
+    <input class="comment-form-name" type="t" name="author" id="comment-author-username" />
+
+    <textarea class="comment-form-txt" name="content" id="comment-content-input" ></textarea>
+    <button type="submit"  class="btn btn-dark mt-3 ">Submit</button>  
+  </div>
 </form>
 </div>
+
+
+
 
 <script>
  const likeNode = document.querySelectorAll('.like-btn-dislike');
