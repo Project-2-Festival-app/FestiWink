@@ -690,13 +690,13 @@ VIOLET!!!
   margin-top: -30px;
 }
 
- .contact-container h1, label, button, .description {
+.contact-container .h1-contact-us .label-contact-us .description , button {
   font-family: 'Jost', sans-serif;
   font-weight: 400;
   letter-spacing: 0.1rem;
 }
 
-.contact-container h1 {
+.h1-contact-us {
   color:var(--h1-color);
   text-transform: uppercase;
   font-size: 2.5rem;
@@ -712,6 +712,8 @@ VIOLET!!!
   width: 40vw;
   margin: 0.25rem 0;
  margin-top: 20px;
+ font-family: 'Helvetica Neue', sans-serif;
+
 }
 
 .contact-container label, .description {
@@ -720,6 +722,7 @@ VIOLET!!!
   font-size: 0.625rem;
 }
 
+
 .contact-container form {
   width: 31.25rem;
   position: relative;
@@ -727,21 +730,33 @@ VIOLET!!!
   padding: 1rem 0;
 }
 
-.contact-container input, textarea, label {
+
+.label-contact-us {
   width: 40vw;
   display: block;
 }
 
 
-.contact-container p, placeholder, input, textarea {
+.textarea-contactus {
+  width: 40vw;
+  display: block;
   font-family: 'Helvetica Neue', sans-serif;
 }
 
-.contact-container input::placeholder, textarea::placeholder {
-  color: var(--primary-color);
+
+.input-contactus {
+  width: 40vw;
+  display: block;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
-.contact-container input, textarea {
+
+.contact-container input::placeholder, textarea::placeholder {
+  color: var(--primary-color);
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.input-contactus  {
   color: var(--primary-color);
   font-weight: 500;
   background: var(--bg-color);
@@ -752,7 +767,15 @@ VIOLET!!!
   outline: none;
 }
 
-.contact-container textarea {
+.textarea-contactus {
+  color: var(--primary-color);
+  font-weight: 500;
+  background: var(--bg-color);
+  border: none;
+  border-bottom: 1px solid var(--secondary-color);
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  outline: none;
   resize: none;
 }
 
@@ -769,7 +792,7 @@ VIOLET!!!
   cursor: pointer;
 }
 
- input:hover, textarea:hover, button:hover {
+input:hover, textarea:hover, button:hover {
   opacity: 0.5;
 }
 
@@ -780,34 +803,6 @@ VIOLET!!!
 #contact-form {
   margin-top: 18px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
