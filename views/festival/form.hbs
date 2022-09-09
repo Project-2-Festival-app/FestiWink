@@ -1,4 +1,4 @@
-<div class="backPink" style="height: 725px;">
+<div class="backPink">
   <div class="text-center">
     {{#if isEdit}}
     <h2> EDIT FESTIVAL</h2>
@@ -63,6 +63,13 @@
             class="custom-form-control form-control py-2 ps-4 {{#if errors.image}}is-invalid{{/if}}"
             placeholder="Upload Image" aria-label="User name" value="{{ festival.image }}">
           {{#if errors.image}}<div class="invalid-feedback">{{ errors.image }}</div>{{/if}}
+        </div>
+        <div class="input-group mb-2">
+              <input type="text" name="latitude" placeholder="latitude" 
+              class="custom-form-control form-control py-2 ps-4 {{#if errors.maps}}is-invalid{{/if}}">
+              <input type="text" name="longitude" placeholder="longitude"
+              class="custom-form-control form-control py-2 ps-4 {{#if errors.maps}}is-invalid{{/if}}">
+          {{#if errors.maps}}<div class="invalid-feedback">{{ errors.masp }}</div>{{/if}}
         </div>
 
         <button class=' btn btn-dark' type="submit">Submit</button>

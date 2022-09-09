@@ -68,7 +68,13 @@ module.exports.detail = (req, res, next) => {
 	}
 
 };
-
+// function findFestivalById (id){
+//   Festival.findById(festivalId)
+//   .populate("comments")
+//   .then((festival) => {
+//       res.render("festival/detail", { festival, isLike });
+//   })
+// }
 
 module.exports.doSearch = (req, res, next) => {
   const {
