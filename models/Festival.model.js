@@ -63,9 +63,14 @@ festivalSchema.virtual("comments", {
     foreignField: "festival",
     justOne: false,
 })
+festivalSchema.virtual("like", {
+    ref: "Like",
+    localField: "_id",
+    foreignField: "festival",
+    justOne: false,
+})
 
 //geocode and create location
-
 
 
 // festivalSchema.pre('save', async function(next){

@@ -179,7 +179,7 @@ body {
     width: 100%;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x:initial;
-    padding: 5px;
+    padding: 30px;
     scrollbar-width: 2%;
   }
 

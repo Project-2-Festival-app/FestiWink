@@ -3,11 +3,22 @@ const Festival = require("../models/Festival.model");
 const mongoose = require("mongoose");
 
 module.exports.home = (req, res, next) => {
-	Festival.find()
-	.then( festivals => {
-		let festivalByDate = festivals.sort((a,b) => b.date -a.date)
-		console.log(festivalByDate);
-		res.render("home", { festivals, festivalByDate });
+	Like.find()
+	.populate("festival")
+	.then(likes => {
+		console.log(likes);
+		if(likes){
+			Festival.find()
+			.then(festivals => {
+				res.render("home", { festivals, likes})
+			})
+		} else {
+			Festival.find()
+			.then(festivals => {
+				console.log("entro en else de like");
+				res.render("home", { festivals})
+			})
+		}
 	})
 	.catch(err => next(err))
 };

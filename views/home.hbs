@@ -6,6 +6,7 @@
       detail page of the event. Just need to register so, go on!!</h4>
     <h4>Create your event to show what fun it is and where and when to find it !!</h4>
   </div>
+
   <div class="container">
     <h1 class="home-clasic">Choose your party !!</h1>
   </div>
@@ -20,6 +21,28 @@
             <h6 class="card-title text-uppercase ">{{festival.name}}</h6>
             <div class="d-flex justify-content-center mt-2">
               <a href="/festivals/{{festival._id}}" class="btn btn-dark">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="container">
+    <h1 class="home-clasic">The most popular:</h1>
+  </div>
+
+  <div class="scrolling-wrapper text-center">
+    {{#each likes as | like |}}
+    <div class="card myCard transparent">
+      <div class="mb-3 d-flex justify-content-center" data-id="{{like.festival._id}}">
+        <div class="rounded p-3 mb-5" style="width: 15rem;">
+          <img src="{{like.festival.image}}" class="card-img-top" alt="{{like.festival.name}}">
+          <div class="card-body text-center ">
+            <h6 class="card-title text-uppercase ">{{like.festival.name}}</h6>
+            <div class="d-flex justify-content-center mt-2">
+              <a href="/festivals/{{like.festival._id}}" class="btn btn-dark">Details</a>
             </div>
           </div>
         </div>
