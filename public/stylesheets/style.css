@@ -804,6 +804,62 @@ input:hover, textarea:hover, button:hover {
   margin-top: 18px;
 }
 
+/* ABOUT US PAGE */
+
+.title {
+  text-align: center ;
+  text-transform: uppercase;
+  color: grey;
+  margin-top: 30px;
+}
+
+.frame-person {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.person {
+  background-color: #f0efe8;
+  width: 100%;
+  max-width: 500px;
+  min-height: 300px;
+  border-radius: 10px;
+  margin-top: 60px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.person-info {
+
+}
+
+.person h2 {
+  letter-spacing: 0.5rem;
+  font-family: 'Noto Sans Buhid', sans-serif;
+}
+
+.person p {
+  padding-top: 10px;
+}
+
+
+.person-img {
+  width: 150px;
+  min-width: 150px;
+}
+
+.person-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+
+
 
 
 
