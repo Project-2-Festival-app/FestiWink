@@ -40,10 +40,17 @@ const router = require("./config/index.routes");
 app.use(router);
 
 //Error handling
-app.use((err, req, res, next) => {
-  console.log(err)
-  res.render("error", { err });
+app.use((req, res, next) => {
+  next(createError(404, 'Page not found'));
 });
+app.use((error, req, res, next) => {
+  console.log(error)
+  let status =  error.status || 500;
+  res.status(status).render('error', {
+    message: error.message,
+    error: req.app.get('env') === 'development' ? error : {}
+  })
+})
 
 //PORT
 const port = process.env.PORT || 3000;
