@@ -26,6 +26,7 @@
     </form>
     <a class="edit btn btn-dark" href="/festivals/{{festival.id}}/edit">Edit</a>
     {{/if}}
+
     {{#if currentUser}}
       {{#if isLike}}
       <button class="like-btn-dislike btn btn-info" data-id="{{festival._id}}">
@@ -40,14 +41,18 @@
   </div>
 
   <hr>
-  <h3 class="m-3 comment">Leave your comment</h3>
+  <h3 class="m-3 comment">Comment:</h3>
   <div class="comment-grid">
     {{#each festival.comments as | comment |}}
     <div class="comment-card">
-      <div class="card-text">
-        <h5 class="author">{{comment.author}}</h5>
+        <div class="container row row-cols-2 text-center">
+          <img class="comment-img" src="{{comment.user.image}}">
+          <h5 class="author">{{comment.author}}</h5>
+        </div>
+        <div class="card-text">
         <hr>
-        <p>{{comment.content}}</p>
+        <p style=" word-break: break-word;">{{comment.content}}</p>
+        {{!-- {{#if sameOwner!!!!!!}}<a class=" remove-comment" data-id="{{comment._id}}">Delete</a>{{/if}} AXIOS --}}
         <form action="/comment/{{comment._id}}/delete" method="POST">
           <button class="btn btn-danger " type="submit">
             <i>Delete</i>
@@ -64,19 +69,18 @@
   <div class="row row-cols-2">
     {{#if currentUser}}
     <div class="mb-2">
-
       <h3 class="comment">Add a comment</h3>
       <form action="/comment/{{festival._id}}" method="POST">
          <div class="comment-form">
           <label for="comment-author-username" class="comment-form-label">Your name:</label>
           <input class="comment-form-name" type="t" name="author" id="comment-author-username" />
-
-          <textarea class="comment-form-txt" name="content" id="comment-content-input"></textarea>
+          <textarea class="comment-form-txt" name="content" id="comment-content-input" maxlength ="50"></textarea>
           <button type="submit" class="btn btn-dark mt-3 ">Submit</button>
         </div>
       </form>
     </div>
   {{/if}}
+
     <div id="map" class=" mb-2">
         <h3>Location</h3>
         <p class="fst-italic mb-3">Please accept geolocation.</p>

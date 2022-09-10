@@ -15,34 +15,38 @@ module.exports.list = (req, res, next) => {
 module.exports.detail = (req, res, next) => {
 	const festivalId = req.params.id;
   const user = req.user;
-  console.log("entro en detail");
 	let isLike = false;
 
 	if (user) {
 		const userId = req.user._id.toString();
-    console.log("entro en user");
 		Like.findOne({ user: userId, festival: festivalId })
 			.populate({
 				path: "festival",
 				populate: {
 					path: "comments",
+          populate: {
+            path:"user",
+          }
 				},
 			})
 			.then((like) => {
 				if (like) {
-					console.log(like);
 					isLike = true;
 					return like.festival;
 				} else {
 					return Festival.findById(festivalId)
-						.populate("comments")
+						.populate({
+              path: "comments",
+              populate:{
+                path: "user",
+              },
+            })
 						.then((festival) => {
 							return festival;
 						});
 				}
 			})
 			.then((festival) => {
-				console.log(festival);
 				if (festival.creator) {
 					const sameUser =
 						festival.creator._id.valueOf() === userId ? true : false;
@@ -57,7 +61,12 @@ module.exports.detail = (req, res, next) => {
 			});
 	} else {
 		Festival.findById(festivalId)
-			.populate("comments")
+    .populate({
+      path: "comments",
+      populate:{
+        path: "user",
+      },
+    })
 			.then((festival) => {
 					res.render("festival/detail", { festival, isLike });
 			})
@@ -68,13 +77,7 @@ module.exports.detail = (req, res, next) => {
 	}
 
 };
-// function findFestivalById (id){
-//   Festival.findById(festivalId)
-//   .populate("comments")
-//   .then((festival) => {
-//       res.render("festival/detail", { festival, isLike });
-//   })
-// }
+
 
 module.exports.doSearch = (req, res, next) => {
   const {
@@ -129,15 +132,18 @@ module.exports.comment = (req, res, next) => {
 };
 
 module.exports.deleteComment = (req, res, next) => {
+  /////////////////////////////////////////////////////////
+  ///////////no m los relaciona bien
   const userId = req.user.id;
   const commentId = req.params.id;
-
+  console.log("coment from req.params",commentId);
   Comment.findOneAndDelete({
-      id: commentId,
+      _id: commentId,
       user: userId
     })
     .populate('festival')
     .then(commentDeleted => {
+      console.log("commente deleted ",commentDeleted);
       return commentDeleted.festival
     })
     .then((festival) => {
