@@ -14,12 +14,7 @@ body {
   src: url(font\Freedom-nZ4J.ttf);
 }
 
-.body-container {
-  padding-bottom: 60px;
-}
-
 /* DETAIL PAGE*/
-
 .party {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -174,51 +169,49 @@ body {
 /* HOME */
 
 .scrolling-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  scroll-snap-type: x mandatory;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  width: 100%;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: initial;
-  padding: 5px;
-  scrollbar-width: 2%;
-}
 
-.myCard {
-  height: 300px;
-  margin: 10px;
-  border-radius: 20px;
-  object-fit: cover;
-  flex: 0 0 auto;
-  scroll-snap-align: center;
-}
+    display: flex;
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x:initial;
+    padding: 30px;
+    scrollbar-width: 2%;
+  }
 
-.scrolling-wrapper {
-  -webkit-overflow-scrolling: touch;
-}
+  .myCard{
+    max-height: 300px;
+    margin: 10px;
+    border-radius: 20px;
+    object-fit: cover;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+
+  .scrolling-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+
 
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2px grey;
-  border-radius: 5px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #48285d;
-  border-radius: 2px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #48285d;
+.page-img{
+    background: url("../images/2.png");
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    image-rendering: auto;
+    height: 100vh;
+  width: 100%;
+  background-position: center 100%;
+    z-index: -1;
 }
 
 .page-img {
@@ -449,13 +442,97 @@ input[type="password"]:focus-visible {
 /* PROFILE PAGE*/
 
 .welcome {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-  text-transform: uppercase;
-  color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    text-transform: uppercase;
+    color: grey;
+}
+/*
+FOOTER
+*/
+.site-footer
+{
+  background-color:#48285d;
+  padding:15px 0 10px;
+  font-size:15px;
+  line-height:24px;
+  color:#d0c7c7;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:10px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:2px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#d0c7c7;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#d0c7c7
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#4a4c56
+}
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:20px
+  }
 }
 
 FOOTER */ .site-footer {
@@ -475,16 +552,25 @@ FOOTER */ .site-footer {
   margin: 10px 0
 }
 
-.site-footer h6 {
-  color: #fff;
-  font-size: 16px;
-  text-transform: uppercase;
-  margin-top: 2px;
-  letter-spacing: 2px
+.backPink{
+    font-family: FestiWink-font;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(72,40,93,1) 52%, rgba(114,50,242,1) 100%);
 }
 
-.site-footer a {
-  color: #d0c7c7;
+.createEdif {
+    font-family: FestiWink-font;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+
 }
 
 .site-footer a:hover {
@@ -873,3 +959,34 @@ input:hover, textarea:hover, button:hover {
 /*
 CARMEN
 */
+.home-clasic {
+  margin: 3% 0;
+  color: rgb(216, 209, 209);
+  text-align: center;
+}
+.home-card{
+  text-align: center;
+  max-width: 90%;
+  margin: 3% 0 3% 5%;
+}
+.home-card > h4{
+  padding: 1%;
+}
+.transparent-home{
+  opacity: 0.5;
+  -moz-opacity: 0.5;
+  filter: alpha(opacity=70);
+  -khtml-opacity: 0.7;
+}
+.comment-img{
+  padding: 0;
+  margin: 0;
+  margin: 0 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+#map {
+  width: 400px;
+  height: 300px;
+}

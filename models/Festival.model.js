@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+//const NodeGeocoder = require('node-geocoder');
 
 const CATEGORY =['Rock','Pop','Reggaeton','Indie','Techno','Electrohouse','Deep House']
 
@@ -19,6 +20,16 @@ const festivalSchema = new mongoose.Schema({
     location:{
         type: String,
         required: [true, 'location is required.'],
+    },
+    maps:{
+        type: {
+            type: String,
+        },
+        coordinates: {
+            type: [Number],
+            index: '2dsphere'
+        },
+        readableAddress: String
     },
     description:{
         type: String,
@@ -52,6 +63,29 @@ festivalSchema.virtual("comments", {
     foreignField: "festival",
     justOne: false,
 })
+festivalSchema.virtual("like", {
+    ref: "Like",
+    localField: "_id",
+    foreignField: "festival",
+    justOne: false,
+})
+
+//geocode and create location
+
+
+// festivalSchema.pre('save', async function(next){
+//     const locate = await geocoder.geocode(this.location);
+//     this.maps = {
+//         type:  'Point',
+//         coordinates: [locate[0].latitude, locate[0].longitude],
+//         readableAddress: locate[0].formattedAddress
+//     }
+
+//     this.location = undefined;
+//     next();
+// });
+
+festivalSchema.index({ maps: '2dsphere' });
 
 const Festival = mongoose.model('Festival', festivalSchema);
 module.exports = Festival;
