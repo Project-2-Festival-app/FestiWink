@@ -1,6 +1,8 @@
+require("dotenv").config()
 const mongoose = require('mongoose');
 const Festival = require('../models/Festival.model');
 const FESTIVALS = require('../data/festivals.json')
+
 // Conectarme a la base de datos
 
 require('../config/db.config');

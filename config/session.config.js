@@ -9,7 +9,7 @@ const sessionConfig = expressSession({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: process.env.COOKIE_SECURE === "true" || false,
+    secure: process.env.COOKIE_SECURE ? true : false,
     maxAge: 24 * 60 * 60 * 1000 * sessionMaxAge, 
     httpOnly: true,
   },
