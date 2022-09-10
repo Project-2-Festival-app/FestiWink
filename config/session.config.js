@@ -4,7 +4,7 @@ const { DB } = require("./db.config");
 
 const sessionMaxAge = process.env.SESSION_AGE || 7; 
 
-console.log(process.env.COOKIE_SECURE)
+console.log(process.env.COOKIE_DOMAIN)
 
 const sessionConfig = expressSession({
   secret: process.env.COOKIE_SECRET || "Super secret (change it!)",
