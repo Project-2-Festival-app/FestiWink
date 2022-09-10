@@ -13,7 +13,8 @@ const sessionConfig = expressSession({
   cookie: {
     secure: process.env.COOKIE_SECURE === "true" || false,
     maxAge: 24 * 60 * 60 * 1000 * sessionMaxAge, 
-    httpOnly: true
+    httpOnly: true,
+    ...(process.env.COOKIE_DOMAIN ? { domain: process.env.COOKIE_DOMAIN } : {})
   },
   store: new MongoStore({
     mongoUrl: DB,
