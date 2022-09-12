@@ -28,11 +28,11 @@
 
     {{#if currentUser}}
       {{#if isLike}}
-      <button class="like-btn-dislike btn btn-info" data-id="{{festival._id}}">
+      <button class="like-btn-dislike btn btn-info mt-2 mb-2" data-id="{{festival._id}}">
         <i class="like-btn">; )</i>
       </button>
     {{else}}
-      <button class="like-btn-dislike btn btn-dark" data-id="{{festival._id}}">
+      <button class="like-btn-dislike btn btn-dark mt-2 mb-2" data-id="{{festival._id}}">
         <i class="like-btn">: (</i>
       </button>
       {{/if}}
@@ -55,8 +55,10 @@
         <div class="card-text">
         <hr>
         <p style=" word-break: break-word;">{{comment.content}}</p>
-        {{!-- {{#if sameOwner!!!!!!}}<a class=" remove-comment" data-id="{{comment._id}}">Delete</a>{{/if}} AXIOS --}}
+     {{!-- /////////////////////////////////////////////////////////////////////////// --}}
+        {{!-- {{#if sameCommentUser}} --}}
         <a class="btn btn-danger comment-delete-button" data-id="{{comment._id}}"><i>Delete</i></a>
+        {{!-- {{/if}} --}}
       </div>
     </div>
     {{/each}}

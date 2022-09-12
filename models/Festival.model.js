@@ -70,22 +70,6 @@ festivalSchema.virtual("like", {
     justOne: false,
 })
 
-//geocode and create location
-
-
-// festivalSchema.pre('save', async function(next){
-//     const locate = await geocoder.geocode(this.location);
-//     this.maps = {
-//         type:  'Point',
-//         coordinates: [locate[0].latitude, locate[0].longitude],
-//         readableAddress: locate[0].formattedAddress
-//     }
-
-//     this.location = undefined;
-//     next();
-// });
-
-festivalSchema.index({ maps: '2dsphere' });
 
 const Festival = mongoose.model('Festival', festivalSchema);
 module.exports = Festival;
