@@ -131,28 +131,20 @@ module.exports.comment = (req, res, next) => {
     });
 };
 
-module.exports.deleteComment = (req, res, next) => {
-  /////////////////////////////////////////////////////////
-  ///////////no m los relaciona bien
+module.exports.delete = (req, res, next) => {
   const userId = req.user.id;
   const commentId = req.params.id;
-  console.log("coment from req.params",commentId);
   Comment.findOneAndDelete({
-      _id: commentId,
-      user: userId
-    })
-    .populate('festival')
-    .then(commentDeleted => {
-      console.log("commente deleted ",commentDeleted);
-      return commentDeleted.festival
-    })
-    .then((festival) => {
-      res.redirect(`/festivals/${festival.id}`)
-    })
-    .catch(err => {
-      console.log(err);
-      next(err)
-    })
+    _id: commentId,
+    user: userId
+  })
+  .then(commenDeleted => {
+    res.status(204).send({ success: 'comment removed from data base'})
+  })
+  .catch( err =>{ 
+    console.log(err);
+    next(err)
+  })
 }
 
 module.exports.createFestival = (req, res, next) => {

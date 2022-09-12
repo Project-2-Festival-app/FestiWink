@@ -53,7 +53,7 @@ router.post("/festivals/:id/delete", authMiddlewares.isAuthenticated, festContro
 
 //Comment festival
 router.post("/comment/:id", authMiddlewares.isAuthenticated, festController.comment)
-router.post("/comment/:id/delete", authMiddlewares.isAuthenticated, festController.deleteComment)
+router.delete("/comment/:id/delete", authMiddlewares.isAuthenticated, festController.delete)
 
 //Edit festival
 router.get("/festivals/:id/edit", authMiddlewares.isAuthenticated, festController.editFestival);

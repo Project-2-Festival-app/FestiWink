@@ -43,8 +43,9 @@
   <hr>
   <h3 class="m-3 comment">Comment:</h3>
   <div class="comment-grid">
+
     {{#each festival.comments as | comment |}}
-    <div class="comment-card">
+    <div class="comment-card comment-delete" data-id="{{comment._id}}">
         <div class="container row row-cols-2 text-center">
           <img class="comment-img" src="{{comment.user.image}}">
           <h5 class="author">{{comment.author}}</h5>
@@ -53,18 +54,13 @@
         <hr>
         <p style=" word-break: break-word;">{{comment.content}}</p>
         {{!-- {{#if sameOwner!!!!!!}}<a class=" remove-comment" data-id="{{comment._id}}">Delete</a>{{/if}} AXIOS --}}
-        <form action="/comment/{{comment._id}}/delete" method="POST">
-          <button class="btn btn-danger " type="submit">
-            <i>Delete</i>
-          </button>
-        </form>
+        <a class="btn btn-danger comment-delete-button" data-id="{{comment._id}}"><i>Delete</i></a>
       </div>
     </div>
     {{/each}}
   </div>
 
   <hr>
-
   
     {{#if currentUser}}
     <div class="mb-4">
@@ -79,14 +75,11 @@
       </form>
     </div>
   {{/if}}
-
-
-   
   </div>
 
 
 
-
+{{!-- LIKE --}}
 <script>
   const likeNode = document.querySelectorAll('.like-btn-dislike');
   for (let node of likeNode) {
@@ -108,6 +101,25 @@
             smileOrNot.textContent = ": (";
             selectedLike.classList.add("btn-dark")
             selectedLike.classList.remove("btn-info")
+          }
+        })
+        .catch(error => console.log('Error!', error))
+    })
+  }
+</script>
+
+{{!-- COMMENT--}}
+<script>
+  const commentNode = document.querySelectorAll('.comment-delete-button');
+  for (let node of commentNode) {
+    node.addEventListener('click', () => {
+      const nodeId = node.dataset.id;
+  
+      axios.delete(`/comment/${nodeId}/delete`)
+        .then(responseFromApi => {
+          if (responseFromApi.status == 204) {
+            console.log(responseFromApi,"entro en axios.delete en el front")
+            document.querySelector(`.comment-delete[data-id="${nodeId}"]`).remove()
           }
         })
         .catch(error => console.log('Error!', error))
