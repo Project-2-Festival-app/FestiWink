@@ -36,12 +36,13 @@
         <i class="like-btn">: (</i>
       </button>
       {{/if}}
+      <hr> 
     {{/if}}
   </div>
 
   
   {{#if  festival.comments }}
-  <hr>  
+   <hr>
   <h3 class="m-3 comment">Comment:</h3>
   <div class="comment-grid">
 
@@ -60,11 +61,11 @@
     </div>
     {{/each}}
   </div>
-  <hr>
   {{/if}}
   
   
     {{#if currentUser}}
+    <hr>
     <div class="mb-4">
       <h3 class="comment">Add a comment</h3>
       <form action="/comment/{{festival._id}}" method="POST">

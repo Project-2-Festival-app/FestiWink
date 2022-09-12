@@ -18,6 +18,7 @@ const SCOPES = [
 router.get("/", miscController.home);
 router.get("/about",  miscController.about);
 router.get("/contactUs", miscController.contact);
+router.post("/contactUs",miscController.doContact )
 
 // AUTH
 router.get("/register", authController.register);

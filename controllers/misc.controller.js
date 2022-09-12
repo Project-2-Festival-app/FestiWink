@@ -31,6 +31,11 @@ module.exports.contact = (req, res, next) => {
 	res.render('misc/contact');
 }
 
+module.exports.doContact = (req, res, next) => {
+	const err = "Sorry, something went wrong"
+	res.render('error', {err});
+}
+
 module.exports.like = (req, res, next) => {
 	const userId = req.user._id.valueOf();
 	const festivalId = req.params.id;
