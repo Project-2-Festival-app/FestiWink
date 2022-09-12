@@ -67,18 +67,23 @@
 
   
     {{#if currentUser}}
-    <div class="mb-2">
+    <div class="mb-4">
       <h3 class="comment">Add a comment</h3>
       <form action="/comment/{{festival._id}}" method="POST">
          <div class="comment-form">
           <label for="comment-author-username" class="comment-form-label">Your name:</label>
           <input class="comment-form-name" type="t" name="author" id="comment-author-username" />
           <textarea class="comment-form-txt" name="content" id="comment-content-input" maxlength ="50"></textarea>
-          <button type="submit" class="btn btn-dark mt-3 ">Submit</button>
+          <button type="submit" class="btn btn-dark mt-3 comment-btn ">Submit</button>
         </div>
       </form>
     </div>
   {{/if}}
+
+
+   
+  </div>
+
 
 
 
