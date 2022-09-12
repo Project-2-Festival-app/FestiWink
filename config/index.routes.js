@@ -34,7 +34,7 @@ router.get("/logout",authMiddlewares.isAuthenticated, authController.logout);
 router.get('/activate/:token', authController.activateAccount)
 
 // USERS
-router.get("/profile", usersController.profile);
+router.get("/profile", authMiddlewares.isAuthenticated, usersController.profile);
 router.post("/like/:id",authMiddlewares.isAuthenticated, miscController.like )
 
 // FESTIVALS
