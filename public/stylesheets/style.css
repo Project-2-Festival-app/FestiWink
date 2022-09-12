@@ -172,6 +172,14 @@ body {
   object-fit: cover;
 }
 
+.custom-card-img-top {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150px;
+}
+
 
 /* HOME */
 
@@ -198,6 +206,8 @@ body {
     flex: 0 0 auto;
     scroll-snap-align: center;
   }
+
+
 
   .scrolling-wrapper {
     -webkit-overflow-scrolling: touch;

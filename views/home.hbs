@@ -17,7 +17,8 @@
     <div class="card myCard transparent">
       <div class="mb-3 d-flex justify-content-center" data-id="{{festival._id}}">
         <div class="rounded p-3 mb-5" style="width: 15rem;">
-          <img src="{{festival.image}}" class="card-img-top" alt="{{festival.name}}">
+          <div style="background-image: url({{festival.image}})" class="custom-card-img-top" alt="{{festival.name}}"></div>
+
           <div class="card-body text-center ">
             <h6 class="card-title text-uppercase ">{{festival.name}}</h6>
             <div class="d-flex justify-content-center mt-2">
@@ -39,7 +40,7 @@
     <div class="card myCard transparent">
       <div class="mb-3 d-flex justify-content-center" data-id="{{like.festival._id}}">
         <div class="rounded p-3 mb-5" style="width: 15rem;">
-          <img src="{{like.festival.image}}" class="card-img-top" alt="{{like.festival.name}}">
+          <div style="background-image: url({{like.festival.image}})" class="custom-card-img-top" alt="{{like.festival.name}}"></div>
           <div class="card-body text-center ">
             <h6 class="card-title text-uppercase ">{{like.festival.name}}</h6>
             <div class="d-flex justify-content-center mt-2">
