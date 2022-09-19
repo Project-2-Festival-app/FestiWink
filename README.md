@@ -13,7 +13,7 @@ As a loger user you can comment on the detail of the event, like it (it will app
 <img src="./public/images/readme/detail.PNG" alt="Create" width="600" height="500">
 
 <h3>Profile page</h3>
-<img src="./public/images/readme/Profile.png" alt="Profile" width="600" height="200">
+<img src="./public/images/readme/Profile.png" alt="Profile" width="600" height="500">
 
 <h3>Create festival page</h3>
 <img src="./public/images/readme/Create.png" alt="Create" width="600" height="200">
@@ -38,7 +38,7 @@ Here you can search by category the events, and you have the shortcuts.
 <img src="./public/images/readme/navbar.png" alt="Navbar" width="750" height="70">
 <h3>Footer</h3>
 Here you can go to our linkeding and github pages, and know more about us on the about page.
-<img src="./public/images/readme/footer.png" alt="Footer" width="600" height="200">
+<img src="./public/images/readme/footer.png" alt="Footer" width="750" height="200">
 
 
 
