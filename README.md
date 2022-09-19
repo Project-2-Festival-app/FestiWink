@@ -13,10 +13,10 @@ As a loger user you can comment on the detail of the event, like it (it will app
 <img src="./public/images/readme/detail.PNG" alt="Create" width="600" height="500">
 
 <h3>Profile page</h3>
-<img src="./public/images/readme/Profile.png" alt="Profile" width="400" height="200">
+<img src="./public/images/readme/Profile.png" alt="Profile" width="600" height="200">
 
 <h3>Create festival page</h3>
-<img src="./public/images/readme/Create.png" alt="Create" width="400" height="200">
+<img src="./public/images/readme/Create.png" alt="Create" width="600" height="200">
 
 The most technical challenge has been relating all the models in the project and creating the like feature and making that the event remembers the likes and users.
 
@@ -35,11 +35,11 @@ thanks for reading ;)
 <img src="./public/images/readme/register.png" alt="Register" width="400" height="200">
 <h3>Navbar</h3>
 Here you can search by category the events, and you have the shortcuts.
-<img src="./public/images/readme/navbar.png" alt="Navbar" width="400" height="200">
+<img src="./public/images/readme/navbar.png" alt="Navbar" width="750" height="70">
 <h3>Footer</h3>
 Here you can go to our linkeding and github pages, and know more about us on the about page.
-<img src="./public/images/readme/footer.png" alt="Footer" width="400" height="200">
+<img src="./public/images/readme/footer.png" alt="Footer" width="600" height="200">
 
 
 
-<h6>By Violeta & Carmen García Guzmán</h6>
+<h6>By Violeta Atkinson & Carmen García Guzmán</h6>
