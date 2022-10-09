@@ -6,7 +6,7 @@
       <h2 class="log-in">Register</h2>
     </div>
     <form action="/register" method="post">
-      <div class="row row-cols-2">
+      <div class="row row-cols-">
 
         <div>
           <div class="form-input mb-2">
@@ -49,26 +49,7 @@
             {{#if errors.image}}<div class="invalid-feedback">{{ errors.image }}</div>{{/if}}
           </div>
 
-          <div class="form-input mb-2 flex-row justify-content-between mt-4">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-              <label class="form-check-label" for="flexCheckChecked">
-                Remember me ;)
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                Maybe :/
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                Or not :(
-              </label>
-            </div>
-          </div>
+          
         </div>
 
       </div>
