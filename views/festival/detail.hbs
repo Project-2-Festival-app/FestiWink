@@ -1,5 +1,5 @@
 <div class="card mb-3 detail rounded-0">
-  <img src={{festival.image}} class="m-4 rounded party" width="370" height="280" alt={{festival.name}} />
+  <img src={{festival.image}} class="m-4 rounded party" alt={{festival.name}} />
   <div class="card-body detail-card">
     <h1 class="card-title text-uppercase">{{festival.name}}</h1>
     <p class="card-text"><small class="text-muted">{{festival.date}}</small></p>
@@ -23,16 +23,16 @@
         <i>Delete</i>
       </button>
     </form>
-    <a class="btn btn-dark mt-2" href="/festivals/{{festival.id}}/edit">Edit</a>
+    <a class="btn btn-dark mt-2 mb-3" href="/festivals/{{festival.id}}/edit">Edit</a>
     {{/if}}
 
     {{#if currentUser}}
       {{#if isLike}}
-      <button class="like-btn-dislike btn btn-info mt-2 mb-2" data-id="{{festival._id}}">
+      <button class="like-btn-dislike btn btn-info mt-2 mb-3" data-id="{{festival._id}}">
         <i class="like-btn">; )</i>
       </button>
     {{else}}
-      <button class="like-btn-dislike btn btn-dark mt-2 mb-2" data-id="{{festival._id}}">
+      <button class="like-btn-dislike btn btn-dark mt-2 mb-3" data-id="{{festival._id}}">
         <i class="like-btn">: (</i>
       </button>
       {{/if}}
@@ -72,8 +72,8 @@
       <h3 class="comment">Add a comment</h3>
       <form action="/comment/{{festival._id}}" method="POST">
          <div class="comment-form">
-          <label for="comment-author-username" class="comment-form-label">Your name:</label>
-          <input class="comment-form-name" type="t" name="author" id="comment-author-username" />
+          <label for="comment-author-username" class="comment-form-label"></label>
+          <input class="comment-form-name" type="t" name="author" id="comment-author-username" placeholder="Name :"/>
           <textarea class="comment-form-txt" name="content" id="comment-content-input" maxlength ="50"></textarea>
           <button type="submit" class="btn btn-dark mt-3 comment-btn ">Submit</button>
         </div>
