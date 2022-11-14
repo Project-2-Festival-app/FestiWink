@@ -23,7 +23,7 @@ The most technical challenge has been relating all the models in the project and
 We would like to implement in the future the location of the festivals with google maps and some playlist of the festival.
 
 
-https://festiwink-production.up.railway.app
+https://festiwink.cyclic.app/register
 
 thanks for reading ;)
 
